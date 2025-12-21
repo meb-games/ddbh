@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxcawt0wfpvmy"]
+
+[ext_resource type="Script" uid="uid://htph4rr622cf" path="res://game/enemy.gd" id="1_un3ot"]
+[ext_resource type="Texture2D" uid="uid://dv6yds1dxisys" path="res://assets/sprites/mage.png" id="2_pmi0t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_af58e"]
+size = Vector2(106, 201)
+
+[node name="ArchMage" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_un3ot")
+metadata/_custom_type_script = "uid://htph4rr622cf"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_af58e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pmi0t")
