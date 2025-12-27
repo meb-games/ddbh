@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c50375av8jgsp"]
+[gd_scene load_steps=7 format=3 uid="uid://c50375av8jgsp"]
 
 [ext_resource type="Script" uid="uid://chcpev8bc35m3" path="res://game.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://b4f5blbvwx4hx" path="res://game/enemy/mage.tscn" id="2_7jktm"]
 [ext_resource type="Script" uid="uid://qkys0o505fxc" path="res://game/explorer.gd" id="3_ryrav"]
 [ext_resource type="Texture2D" uid="uid://23vxmoeodn8u" path="res://assets/sprites/explorer.png" id="4_eow3j"]
+[ext_resource type="PackedScene" uid="uid://bfnpagbmka5qo" path="res://pause_menu.tscn" id="5_7jktm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
 size = Vector2(102, 151)
@@ -27,3 +28,6 @@ texture = ExtResource("4_eow3j")
 [node name="DashTimer" type="Timer" parent="Explorer"]
 wait_time = 0.1
 one_shot = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_7jktm")]
+visible = false

@@ -41,3 +41,19 @@ func start_dash(mult: float) -> void:
     dash_dir = (get_global_mouse_position() - global_position).normalized()
     if dash_dir == Vector2.ZERO:
         dash_dir = Vector2.RIGHT # fallback if mouse exactly on player
+
+func take_hit(base_damage: int) -> void:
+    var damage := int(base_damage * damage_mult)
+
+    if damage <= 0:
+        return # i-frames
+
+    health -= damage
+    # Optional: clamp so it never goes below zero
+    health = max(health, 0)
+
+    if health <= 0:
+        die()
+
+func die() -> void:
+    get_tree().change_scene_to_file("res://game_over.tscn")

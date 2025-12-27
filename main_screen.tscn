@@ -13,8 +13,8 @@ script = ExtResource("1_tjn2e")
 
 [node name="Play" type="Button" parent="."]
 layout_mode = 0
-offset_left = 421.0
-offset_top = 262.0
-offset_right = 650.0
-offset_bottom = 329.0
+offset_left = 460.0
+offset_top = 289.0
+offset_right = 689.0
+offset_bottom = 356.0
 text = "Play"
