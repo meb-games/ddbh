@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
+const MAX_HEALTH = 10.0
 @export var speed := 400.0
-@export var health := 10
+@export var health := MAX_HEALTH
 
 @export var max_dash_distance := 220.0
 @export var dash_speed := 1500.0
@@ -31,7 +32,7 @@ func _physics_process(delta: float) -> void:
 		var new_pos := self.position + velocity
 		dash_distance -= self.position.distance_to(new_pos)
 		
-		if dash_distance <= 0.0:
+		if dash_distance <= 0.50:
 			player_state = PlayerState.Normal
 			velocity = Vector2.ZERO
 	
@@ -57,6 +58,11 @@ func start_dash(kind: PlayerState) -> void:
 func take_hit(base_damage: int) -> void:
 	var damage := base_damage * player_state
 	health -= damage
+	update_health_ui()
 
 	if health <= 0:
 		get_tree().change_scene_to_file("res://game_over.tscn")
+
+# Health Bar Code
+func update_health_ui():
+	$"../HealthBar".value = health
