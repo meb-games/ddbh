@@ -5,24 +5,24 @@ var bulletDirection: Vector2
 var mageFire: Timer
 
 func _ready():
-    self.mageFire = $MageFire
-    self.mageFire.one_shot = true
-    self.mageFire.connect(
-        'timeout',
-        func():
-            var bullet = self.BULLET.instantiate();
-            bullet.motion = bulletDirection
-            self.add_child(bullet)
-            
-            self.bulletsToSpawn -= 1
-            if self.bulletsToSpawn > 0:
-                mageFire.start()
-    )
+	self.mageFire = $MageFire
+	self.mageFire.one_shot = true
+	self.mageFire.connect(
+		'timeout',
+		func():
+			var bullet = self.BULLET.instantiate();
+			bullet.motion = bulletDirection
+			self.add_child(bullet)
+			
+			self.bulletsToSpawn -= 1
+			if self.bulletsToSpawn > 0:
+				mageFire.start()
+	)
 
 func _physics_process(_delta: float) -> void:
-    move_and_slide()
+	move_and_slide()
 
 func _fire(player: CharacterBody2D):
-    self.bulletsToSpawn = 4
-    self.bulletDirection = self.position.direction_to(player.position)
-    self.mageFire.start()
+	self.bulletsToSpawn = 4
+	self.bulletDirection = self.position.direction_to(player.position)
+	self.mageFire.start()
