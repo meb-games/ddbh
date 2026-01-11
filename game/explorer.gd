@@ -60,6 +60,7 @@ func take_hit(base_damage: int) -> void:
 	health -= damage
 	update_health_ui()
 
+func _process(_delta: float):
 	if health <= 0:
 		get_tree().change_scene_to_file("res://game_over.tscn")
 
