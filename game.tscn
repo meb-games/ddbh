@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c50375av8jgsp"]
+[gd_scene load_steps=8 format=3 uid="uid://c50375av8jgsp"]
 
 [ext_resource type="Script" uid="uid://chcpev8bc35m3" path="res://game.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://b4f5blbvwx4hx" path="res://game/enemy/mage.tscn" id="2_7jktm"]
+[ext_resource type="PackedScene" uid="uid://csuwo6x450dl0" path="res://game/enemy/wizard.tscn" id="3_eow3j"]
 [ext_resource type="Script" uid="uid://qkys0o505fxc" path="res://game/explorer.gd" id="3_ryrav"]
 [ext_resource type="Texture2D" uid="uid://23vxmoeodn8u" path="res://assets/sprites/explorer.png" id="4_eow3j"]
 [ext_resource type="PackedScene" uid="uid://bfnpagbmka5qo" path="res://pause_menu.tscn" id="5_7jktm"]
@@ -12,6 +13,7 @@ size = Vector2(102, 151)
 [node name="Game" type="Node2D"]
 script = ExtResource("1_fc0e3")
 MAGE_SCENE = ExtResource("2_7jktm")
+WIZARD_SCENE = ExtResource("3_eow3j")
 
 [node name="Explorer" type="CharacterBody2D" parent="."]
 position = Vector2(627, 284)

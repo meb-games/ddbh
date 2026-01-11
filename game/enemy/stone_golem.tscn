@@ -12,5 +12,6 @@ collision_layer = 2
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_3mrp6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(0, -0.5)
 texture = ExtResource("1_rot84")
