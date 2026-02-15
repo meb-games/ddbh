@@ -11,14 +11,14 @@ func _ready():
 		'timeout',
 		func():
 			var bullet = self.spawnAttack()
-			bullet.motion = bulletDirection
+			bullet.direction = bulletDirection
 			
 			self.bulletsToSpawn -= 1
 			if self.bulletsToSpawn > 0:
 				mageFire.start()
 	)
 
-func _attack(player: CharacterBody2D):
+func _attack(explorer: CharacterBody2D):
 	self.bulletsToSpawn = 4
-	self.bulletDirection = self.position.direction_to(player.position)
+	self.bulletDirection = self.position.direction_to(explorer.position)
 	self.mageFire.start()

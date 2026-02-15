@@ -1,9 +1,10 @@
 extends Enemy
 
-var offsetTop := Vector2(-25, -25)
-var offsetBottom := Vector2(-25, 25)
+# The angle (in radians) that bullets are rotated by.
+const BULLET_OFFSET = (1.0/8.0) * PI
 
-func _attack(player: CharacterBody2D):
-	var bulletDirection := self.position.direction_to(player.position).normalized()
-	var bullet = self.spawnAttack()
-	bullet.direction = bulletDirection
+func _attack(explorer: CharacterBody2D):
+	var bulletDirection := self.position.direction_to(explorer.position)
+	for i in range(-2, 3):
+		var bullet = self.spawnAttack()
+		bullet.direction = bulletDirection.rotated(i * BULLET_OFFSET)
