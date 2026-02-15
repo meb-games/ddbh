@@ -19,9 +19,6 @@ func _ready():
 				mageFire.start()
 	)
 
-func _physics_process(_delta: float) -> void:
-	move_and_slide()
-
 func _fire(player: CharacterBody2D):
 	self.bulletsToSpawn = 4
 	self.bulletDirection = self.position.direction_to(player.position)
