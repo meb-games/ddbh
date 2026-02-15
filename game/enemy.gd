@@ -17,5 +17,8 @@ func __enemy_ready():
 	timer.wait_time = self.fireSpeed
 	timer.connect('timeout', func(): self._fire(explorer))
 	self.add_child(timer)
+	
+func spawnBullet() -> Area2D:
+	return self.BULLET.instantiate()
 
 @abstract func _fire(player: CharacterBody2D)
