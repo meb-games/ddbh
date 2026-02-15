@@ -10,16 +10,15 @@ func _ready():
 	self.mageFire.connect(
 		'timeout',
 		func():
-			var bullet = self.BULLET.instantiate();
+			var bullet = self.spawnBullet()
 			bullet.motion = bulletDirection
-			self.add_child(bullet)
 			
 			self.bulletsToSpawn -= 1
 			if self.bulletsToSpawn > 0:
 				mageFire.start()
 	)
 
-func _fire(player: CharacterBody2D):
+func _on_fire(player: CharacterBody2D):
 	self.bulletsToSpawn = 4
 	self.bulletDirection = self.position.direction_to(player.position)
 	self.mageFire.start()

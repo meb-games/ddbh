@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4f5blbvwx4hx"]
+[gd_scene format=3 uid="uid://b4f5blbvwx4hx"]
 
 [ext_resource type="Texture2D" uid="uid://dv6yds1dxisys" path="res://assets/sprites/mage.png" id="1_e7yrj"]
 [ext_resource type="Script" uid="uid://bjquf3320smu5" path="res://game/enemy/mage.gd" id="1_fkfi6"]
@@ -6,20 +6,20 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkfi6"]
 size = Vector2(106, 201)
 
-[node name="Mage" type="CharacterBody2D"]
+[node name="Mage" type="CharacterBody2D" unique_id=324492001]
 collision_layer = 2
 script = ExtResource("1_fkfi6")
 metadata/_custom_type_script = "uid://htph4rr622cf"
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1070087491]
 position = Vector2(0, 0.5)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_fkfi6")
 
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=1244207930]
 position = Vector2(0, -0.5)
 texture = ExtResource("1_e7yrj")
 
-[node name="MageFire" type="Timer" parent="."]
+[node name="MageFire" type="Timer" parent="." unique_id=2007725970]
 wait_time = 0.1

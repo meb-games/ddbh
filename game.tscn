@@ -52,4 +52,9 @@ offset_bottom = 52.0
 max_value = 10.0
 show_percentage = false
 
+[node name="Bullets" type="Node2D" parent="." unique_id=900952389]
+
+[node name="Mage" parent="." unique_id=1320799616 instance=ExtResource("2_7jktm")]
+position = Vector2(177.35995, 140.70996)
+
 [connection signal="body_entered" from="Explorer/Area2D" to="Explorer" method="_on_body_entered"]

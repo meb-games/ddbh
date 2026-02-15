@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://crc6iagy0nbrb"]
 
-[ext_resource type="Script" uid="uid://lqxbtsmj4cfa" path="res://game/enemy/wizard/bullet_pattern.gd" id="1_qfn5l"]
+[ext_resource type="Script" uid="uid://lqxbtsmj4cfa" path="res://game/enemy/wizard/wizard_bullet.gd" id="1_qfn5l"]
 [ext_resource type="PackedScene" uid="uid://bhkv2ay5rxb2" path="res://game/bullet.tscn" id="2_yvv7b"]
 
 [node name="BulletPattern" type="Node2D" unique_id=68798380]
