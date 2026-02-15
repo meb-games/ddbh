@@ -1,7 +1,5 @@
 extends Enemy
 
-func _fire(player: CharacterBody2D):
-	var bulletDirection := self.position.direction_to(player.position)
-	var bullet := self.BULLET.instantiate();
-	bullet.motion = bulletDirection
-	self.add_child(bullet)
+func _attack(player: CharacterBody2D):
+	# Enemy attack here
+	pass

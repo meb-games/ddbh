@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://csuwo6x450dl0"]
 
-[ext_resource type="Script" uid="uid://cw0w1xg4u3q2u" path="res://game/enemy/wizard.gd" id="1_1j08m"]
+[ext_resource type="Script" uid="uid://cw0w1xg4u3q2u" path="res://game/enemies/wizard/wizard.gd" id="1_1j08m"]
 [ext_resource type="Texture2D" uid="uid://cs0ltrywx6gvj" path="res://assets/sprites/wizard.png" id="1_dlfig"]
-[ext_resource type="PackedScene" uid="uid://crc6iagy0nbrb" path="res://game/enemy/wizard/wizard_bullet.tscn" id="2_pryi4"]
+[ext_resource type="PackedScene" uid="uid://crc6iagy0nbrb" path="res://game/enemies/wizard/attack.tscn" id="2_pryi4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ls81b"]
 size = Vector2(106, 201)
@@ -10,7 +10,7 @@ size = Vector2(106, 201)
 [node name="Wizard" type="CharacterBody2D" unique_id=1275428648]
 collision_layer = 2
 script = ExtResource("1_1j08m")
-BULLET = ExtResource("2_pryi4")
+ATTACK = ExtResource("2_pryi4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=20891050]
 position = Vector2(0, 0.5)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b4f5blbvwx4hx"]
 
 [ext_resource type="Texture2D" uid="uid://dv6yds1dxisys" path="res://assets/sprites/mage.png" id="1_e7yrj"]
-[ext_resource type="Script" uid="uid://bjquf3320smu5" path="res://game/enemy/mage.gd" id="1_fkfi6"]
+[ext_resource type="Script" uid="uid://bjquf3320smu5" path="res://game/enemies/mage/mage.gd" id="1_fkfi6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkfi6"]
 size = Vector2(106, 201)

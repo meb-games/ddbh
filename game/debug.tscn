@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6e8fb205bco1"]
+[gd_scene format=3 uid="uid://b6e8fb205bco1"]
 
-[ext_resource type="PackedScene" uid="uid://b4f5blbvwx4hx" path="res://game/enemy/mage.tscn" id="1_jqsts"]
+[ext_resource type="PackedScene" uid="uid://b4f5blbvwx4hx" path="res://game/enemies/mage/mage.tscn" id="1_jqsts"]
 
 [node name="Debug" type="Node2D"]
 

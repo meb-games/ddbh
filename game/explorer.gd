@@ -1,3 +1,4 @@
+class_name Explorer
 extends CharacterBody2D
 
 const MAX_HEALTH = 10.0
