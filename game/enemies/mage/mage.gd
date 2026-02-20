@@ -18,7 +18,7 @@ func _ready():
 				mageFire.start()
 	)
 
-func _attack(explorer: CharacterBody2D):
+func _act(explorer: CharacterBody2D):
 	self.bulletsToSpawn = 4
 	self.bulletDirection = self.position.direction_to(explorer.position)
 	self.mageFire.start()

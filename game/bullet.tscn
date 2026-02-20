@@ -7,6 +7,7 @@
 radius = 7.0
 
 [node name="Bullet" type="Area2D" unique_id=765468254]
+z_index = 1
 collision_layer = 4
 script = ExtResource("1_3mm70")
 

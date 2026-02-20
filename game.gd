@@ -5,7 +5,6 @@ extends Node2D
 
 func _ready() -> void:
 	var mage = WIZARD_SCENE.instantiate()
-	$HealthBar.value = 10
 	mage.position.x += 100
 	mage.position.y += 100
-	add_child(mage)
+	#add_child(mage)

@@ -12,17 +12,17 @@ const MAX_HEALTH = 10.0
 # the explorer dashes to the mouse's location
 @export var constant_dash_distance := false
 
-# Stores what the explorer is currently doing. The number is a damage multiplier for the explorer's
-# state.
+## Stores what the explorer is currently doing. The number is a damage multiplier for the explorer's
+## state.
 var state := PlayerState.Normal
 enum PlayerState {
 	DefensiveDash = 0,
 	Normal = 1,
 	OffensiveDash = 2
 }
-# The direction the explorer is dashing
+## The direction the explorer is dashing
 var dash_dir := Vector2.ZERO
-# How much farther the explorer needs to dash
+## How much farther the explorer needs to dash
 var dash_distance := 0.0
 
 signal health_changed(float)
@@ -30,25 +30,25 @@ signal health_changed(float)
 func _init() -> void:
 	self.health_changed.connect(func(health: float):
 		if health <= 0:
-			get_tree().change_scene_to_file("res://game_over.tscn")
+			get_tree().change_scene_to_file.call_deferred("res://game_over.tscn")
 		
 		self.health = health
 	)
+	self.hit_by_bullet.connect(self._hit_by_bullet)
 
 func _physics_process(delta: float) -> void:
 	if self.state == PlayerState.Normal:
-		velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * speed * delta
+		self.position += Input.get_vector("move_left", "move_right", "move_up", "move_down") * speed * delta
 	else:
 		velocity = (dash_dir * dash_speed * delta).limit_length(dash_distance)
 		var new_pos := self.position + velocity
-		dash_distance -= self.position.distance_to(new_pos)
+		self.dash_distance -= self.position.distance_to(new_pos)
+		self.position = new_pos
 		
 		if dash_distance <= 0.50:
 			self.modulate = Color.WHITE
 			self.state = PlayerState.Normal
 			velocity = Vector2.ZERO
-	
-	self.position += velocity
 
 	if Input.is_action_just_pressed("dash_defensive"):
 		self.modulate = Color(0, 0, 255)
@@ -69,10 +69,19 @@ func start_dash(kind: PlayerState) -> void:
 	if dash_dir == Vector2.ZERO:
 		dash_dir = Vector2.RIGHT # fallback if mouse exactly on explorer
 
-func on_hit_by_bullet() -> void:
+func _on_body_entered(body: Node) -> void:
+	if self.state == PlayerState.OffensiveDash && body.has_signal("hit_by_explorer"):
+		body.emit_signal("hit_by_explorer", self)
+
+
+
+# 
+# Signals
+# 
+
+
+
+signal hit_by_bullet
+func _hit_by_bullet(_bullet: Bullet) -> void:
 	var damage := 1 * self.state
 	self.health_changed.emit(self.health - damage)
-
-func _on_body_entered(body: Node) -> void:
-	if self.player_state == PlayerState.OffensiveDash && body.has_signal("collide_player"):
-		body.emit_signal("collide_player")

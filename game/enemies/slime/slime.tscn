@@ -1,17 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://818s6eno5gc8"]
+[gd_scene format=3 uid="uid://818s6eno5gc8"]
 
-[ext_resource type="Texture2D" uid="uid://dv6yds1dxisys" path="res://assets/sprites/mage.png" id="1_1ohay"]
+[ext_resource type="Script" uid="uid://c3mjpdscb4igw" path="res://game/enemies/slime/slime.gd" id="1_74qep"]
+[ext_resource type="Texture2D" uid="uid://5iounadvpwdj" path="res://assets/sprites/slime.png" id="2_74qep"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qtm3c"]
 size = Vector2(106, 201)
 
-[node name="Slime" type="CharacterBody2D"]
+[node name="Slime" type="CharacterBody2D" unique_id=1223112976]
 collision_layer = 2
+script = ExtResource("1_74qep")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=526078625]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_qtm3c")
 
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=1296698452]
 position = Vector2(0, -0.5)
-texture = ExtResource("1_1ohay")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_74qep")
