@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://d2hvlcu1jknxy"]
 
-[ext_resource type="Texture2D" uid="uid://lklko3fjsbfp" path="res://assets/sprites/mud_golem.png" id="1_p5nn5"]
+[ext_resource type="Script" uid="uid://dcgbd3c16n5w5" path="res://game/enemies/golem/mud_golem.gd" id="1_l7ure"]
+[ext_resource type="Texture2D" uid="uid://lklko3fjsbfp" path="res://assets/sprites/mud_golem.png" id="2_obw3n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dklp"]
 size = Vector2(106, 201)
 
-[node name="MudGolumn" type="CharacterBody2D" unique_id=1677922421]
+[node name="MudGolem" type="CharacterBody2D" unique_id=1677922421]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
+script = ExtResource("1_l7ure")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1701518331]
 position = Vector2(0, 0.5)
@@ -15,4 +17,4 @@ shape = SubResource("RectangleShape2D_8dklp")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=193658112]
 position = Vector2(0, -0.5)
-texture = ExtResource("1_p5nn5")
+texture = ExtResource("2_obw3n")
