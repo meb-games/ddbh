@@ -14,6 +14,7 @@ enum GolemState {
 	COOLDOWN
 }
 var state := GolemState.FOLLOW
+var can_charged_slam := true
 
 func _init():
 	self.ACTION_SPEED = 1.0 / Engine.physics_ticks_per_second
@@ -33,8 +34,12 @@ func _act(explorer: CharacterBody2D):
 		GolemState.START_CHARGED_SLAM:
 			self.change_state(.5, GolemState.DO_CHARGED_SLAM)
 		GolemState.DO_CHARGED_SLAM:
+			self.can_charged_slam = false
 			print("todo charged slam")
 			self.change_state(1.0, GolemState.FOLLOW)
+			get_tree().create_timer(10.0).timeout.connect(func():
+				self.can_charged_slam = true
+			)
 
 func change_state(delay: float, new_state: GolemState):
 	self.movement_direction = Vector2.ZERO
