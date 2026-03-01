@@ -18,8 +18,11 @@ var state := PlayerState.Normal
 enum PlayerState {
 	DefensiveDash = 0,
 	Normal = 1,
-	OffensiveDash = 2
+	OffensiveDash = 2,
+	Hit = 3
 }
+const STATE_COLOURS = [Color.BLUE, Color.WHITE, Color.ORANGE, Color.RED]
+var invi_frames = 5
 ## The direction the explorer is dashing
 var dash_dir := Vector2.ZERO
 ## How much farther the explorer needs to dash
@@ -28,12 +31,6 @@ var dash_distance := 0.0
 signal health_changed(float)
 
 func _init() -> void:
-	self.health_changed.connect(func(health: float):
-		if health <= 0:
-			get_tree().change_scene_to_file.call_deferred("res://game_over.tscn")
-		
-		self.health = health
-	)
 	self.hit_by_bullet.connect(self._hit_by_bullet)
 
 func _physics_process(delta: float) -> void:
@@ -46,15 +43,12 @@ func _physics_process(delta: float) -> void:
 		self.position = new_pos
 		
 		if dash_distance <= 0.50:
-			self.modulate = Color.WHITE
 			self.state = PlayerState.Normal
 			velocity = Vector2.ZERO
 
 	if Input.is_action_just_pressed("dash_defensive"):
-		self.modulate = Color(0, 0, 255)
 		start_dash(PlayerState.DefensiveDash)
 	elif Input.is_action_just_pressed("dash_offensive"):
-		self.modulate = Color(255, 0, 0)
 		start_dash(PlayerState.OffensiveDash)
 
 # Makes the explorer dash in the direction of the mouse.
@@ -83,5 +77,33 @@ func _on_body_entered(body: Node) -> void:
 
 signal hit_by_bullet
 func _hit_by_bullet(_bullet: Bullet) -> void:
-	var damage := 1 * self.state
-	self.health_changed.emit(self.health - damage)
+	match self.state:
+		PlayerState.Normal, PlayerState.OffensiveDash:
+			var dmg = 1 * self.state
+			self.state = PlayerState.Hit
+			self.invi_frames = 5
+			
+			self.health -= dmg
+			if self.health <= 0:
+				get_tree().change_scene_to_file.call_deferred("res://game_over.tscn")
+			
+			self.health_changed.emit(self.health)
+		PlayerState.DefensiveDash, PlayerState.Hit:
+			pass
+
+func _process(delta: float) -> void:
+	match self.state:
+		PlayerState.Normal:
+			$/root/Game/UI/DashColour['theme_override_styles/panel'].border_color = Color.TRANSPARENT
+			self.modulate = Color.WHITE
+		PlayerState.DefensiveDash:
+			$/root/Game/UI/DashColour['theme_override_styles/panel'].border_color = Color.BLUE
+		PlayerState.OffensiveDash:
+			$/root/Game/UI/DashColour['theme_override_styles/panel'].border_color = Color.RED
+		PlayerState.Hit:
+			self.invi_frames -= 1
+			self.modulate = Color.RED
+			print(self.invi_frames)
+			if self.invi_frames == 0:
+				self.state = PlayerState.Normal
+				self.invi_frames = 5
