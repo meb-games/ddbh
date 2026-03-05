@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://lklko3fjsbfp" path="res://assets/sprites/mud_golem.png" id="2_obw3n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dklp"]
-size = Vector2(106, 201)
+size = Vector2(188, 131)
 
 [node name="MudGolem" type="CharacterBody2D" unique_id=1677922421]
 scale = Vector2(0.5, 0.5)

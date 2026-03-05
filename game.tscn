@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://23vxmoeodn8u" path="res://assets/sprites/explorer.png" id="4_eow3j"]
 [ext_resource type="PackedScene" uid="uid://bfnpagbmka5qo" path="res://pause_menu.tscn" id="5_7jktm"]
 [ext_resource type="Script" uid="uid://c8n6lloyoc33u" path="res://health_bar.gd" id="7_eow3j"]
-[ext_resource type="PackedScene" uid="uid://d2hvlcu1jknxy" path="res://game/enemies/golem/mud_golem.tscn" id="7_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://dfclkrb7doq4n" path="res://game/enemies/golem/stone_golem.tscn" id="9_vef74"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j5wjh"]
@@ -72,7 +71,5 @@ shape = SubResource("RectangleShape2D_ryrav")
 texture = ExtResource("4_eow3j")
 
 [node name="StoneGolem" parent="." unique_id=2107590911 instance=ExtResource("9_vef74")]
-
-[node name="MudGolem" parent="." unique_id=1677922421 instance=ExtResource("7_j5wjh")]
 
 [connection signal="body_entered" from="Explorer/Area2D" to="Explorer" method="_on_body_entered"]
