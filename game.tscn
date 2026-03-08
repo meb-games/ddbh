@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://23vxmoeodn8u" path="res://assets/sprites/explorer.png" id="4_eow3j"]
 [ext_resource type="PackedScene" uid="uid://bfnpagbmka5qo" path="res://pause_menu.tscn" id="5_7jktm"]
 [ext_resource type="Script" uid="uid://c8n6lloyoc33u" path="res://health_bar.gd" id="7_eow3j"]
+[ext_resource type="PackedScene" uid="uid://4hatbba444ei" path="res://game/map_elements/wall.tscn" id="7_j5wjh"]
+[ext_resource type="PackedScene" uid="uid://csuwo6x450dl0" path="res://game/enemies/wizard/wizard.tscn" id="8_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://dfclkrb7doq4n" path="res://game/enemies/golem/stone_golem.tscn" id="9_vef74"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j5wjh"]
@@ -49,6 +51,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_j5wjh")
 [node name="Explorer" type="CharacterBody2D" parent="." unique_id=191068650]
 position = Vector2(627, 284)
 scale = Vector2(0.5, 0.5)
+collision_mask = 9
 script = ExtResource("3_ryrav")
 metadata/_custom_type_script = "uid://qkys0o505fxc"
 metadata/_edit_group_ = true
@@ -71,5 +74,16 @@ shape = SubResource("RectangleShape2D_ryrav")
 texture = ExtResource("4_eow3j")
 
 [node name="StoneGolem" parent="." unique_id=2107590911 instance=ExtResource("9_vef74")]
+
+[node name="Wall" parent="." unique_id=1121962823 instance=ExtResource("7_j5wjh")]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(526, 327)
+
+[node name="Wall2" parent="." unique_id=1283477821 instance=ExtResource("7_j5wjh")]
+position = Vector2(469, 355)
+
+[node name="Wizard" parent="." unique_id=1275428648 instance=ExtResource("8_j5wjh")]
+position = Vector2(180, 69)
 
 [connection signal="body_entered" from="Explorer/Area2D" to="Explorer" method="_on_body_entered"]
