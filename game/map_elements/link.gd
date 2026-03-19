@@ -7,7 +7,7 @@ signal hit_by_explorer
 
 func _init() -> void:
 	self.hit_by_explorer.connect(func(_explorer):
-		get_viewport().get_camera_2d().position = second.position
+		get_viewport().get_camera_2d().position = second.position + (get_viewport().get_visible_rect().size / 2)
 	)
 
 func _ready() -> void:
