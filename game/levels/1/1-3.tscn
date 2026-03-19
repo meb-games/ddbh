@@ -1,76 +1,9 @@
 [gd_scene format=3 uid="uid://c50375av8jgsp"]
 
-[ext_resource type="Script" uid="uid://chcpev8bc35m3" path="res://game.gd" id="1_fc0e3"]
-[ext_resource type="Script" uid="uid://qkys0o505fxc" path="res://game/explorer.gd" id="3_ryrav"]
-[ext_resource type="Texture2D" uid="uid://23vxmoeodn8u" path="res://assets/sprites/explorer.png" id="4_eow3j"]
-[ext_resource type="PackedScene" uid="uid://bfnpagbmka5qo" path="res://pause_menu.tscn" id="5_7jktm"]
-[ext_resource type="Script" uid="uid://c8n6lloyoc33u" path="res://health_bar.gd" id="7_eow3j"]
 [ext_resource type="PackedScene" uid="uid://4hatbba444ei" path="res://game/map_elements/wall.tscn" id="7_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://d2hvlcu1jknxy" path="res://game/enemies/golem/mud_golem.tscn" id="7_vef74"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j5wjh"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.8, 0.8, 0.8, 0)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
-size = Vector2(102, 151)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ryrav"]
-size = Vector2(102, 148)
-
-[node name="Game" type="Node2D" unique_id=1181130339]
-script = ExtResource("1_fc0e3")
-
-[node name="UI" type="Node2D" parent="." unique_id=940639180]
-
-[node name="HealthBar" type="ProgressBar" parent="UI" unique_id=1956468060]
-offset_left = 448.0
-offset_top = 25.0
-offset_right = 630.0
-offset_bottom = 52.0
-max_value = 10.0
-value = 10.0
-show_percentage = false
-script = ExtResource("7_eow3j")
-
-[node name="PauseMenu" parent="UI" unique_id=234293360 instance=ExtResource("5_7jktm")]
-visible = false
-
-[node name="DashColour" type="Panel" parent="UI" unique_id=1917645227]
-offset_right = 1152.0
-offset_bottom = 648.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_j5wjh")
-
-[node name="Attacks" type="Node2D" parent="." unique_id=900952389]
-
-[node name="Explorer" type="CharacterBody2D" parent="." unique_id=191068650]
-position = Vector2(47, 325)
-scale = Vector2(0.5, 0.5)
-collision_mask = 9
-script = ExtResource("3_ryrav")
-metadata/_custom_type_script = "uid://qkys0o505fxc"
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Explorer" unique_id=1233669033]
-shape = SubResource("RectangleShape2D_0xm2m")
-
-[node name="DashTimer" type="Timer" parent="Explorer" unique_id=1003104214]
-wait_time = 0.1
-one_shot = true
-
-[node name="Area2D" type="Area2D" parent="Explorer" unique_id=1223012278]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Explorer/Area2D" unique_id=993093260]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_ryrav")
-
-[node name="Sprite2D" type="Sprite2D" parent="Explorer" unique_id=1063228495]
-texture = ExtResource("4_eow3j")
+[node name="1-3" type="Node2D" unique_id=1181130339]
 
 [node name="Wall" parent="." unique_id=1121962823 instance=ExtResource("7_j5wjh")]
 modulate = Color(1, 0, 0, 1)
@@ -90,5 +23,3 @@ position = Vector2(537, 449)
 
 [node name="MudGolem" parent="." unique_id=1677922421 instance=ExtResource("7_vef74")]
 position = Vector2(1095, 325)
-
-[connection signal="body_entered" from="Explorer/Area2D" to="Explorer" method="_on_body_entered"]

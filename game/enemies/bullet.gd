@@ -1,5 +1,5 @@
-extends StaticBody2D
 class_name Bullet
+extends StaticBody2D
 
 @export var direction: Vector2
 @export var speed = 400

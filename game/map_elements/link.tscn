@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bemb31mv0moki"]
+
+[ext_resource type="Script" uid="uid://btbxtklx550jt" path="res://game/map_elements/link.gd" id="1_wffr2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8sit"]
+size = Vector2(20, 648)
+
+[node name="Link" type="CharacterBody2D" unique_id=1158032978]
+collision_layer = 16
+script = ExtResource("1_wffr2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1801069725]
+position = Vector2(0, 324)
+shape = SubResource("RectangleShape2D_k8sit")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=160189780]
+offset_left = -10.0
+offset_right = 10.0
+offset_bottom = 648.0

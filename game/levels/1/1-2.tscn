@@ -1,41 +1,8 @@
 [gd_scene format=3 uid="uid://bk1u71rmubed3"]
 
-[ext_resource type="Script" uid="uid://qkys0o505fxc" path="res://game/explorer.gd" id="1_cwxd8"]
-[ext_resource type="Texture2D" uid="uid://23vxmoeodn8u" path="res://assets/sprites/explorer.png" id="2_ec6vn"]
 [ext_resource type="PackedScene" uid="uid://818s6eno5gc8" path="res://game/enemies/slime/slime.tscn" id="3_ui2y0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgkfm"]
-size = Vector2(102, 151)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iv6g5"]
-size = Vector2(102, 148)
-
-[node name="Node2D" type="Node2D" unique_id=850633870]
-
-[node name="Explorer" type="CharacterBody2D" parent="." unique_id=1866337322]
-position = Vector2(47, 325)
-scale = Vector2(0.5, 0.5)
-collision_mask = 9
-script = ExtResource("1_cwxd8")
-metadata/_custom_type_script = "uid://qkys0o505fxc"
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Explorer" unique_id=1457864886]
-shape = SubResource("RectangleShape2D_qgkfm")
-
-[node name="DashTimer" type="Timer" parent="Explorer" unique_id=1165427683]
-wait_time = 0.1
-one_shot = true
-
-[node name="Area2D" type="Area2D" parent="Explorer" unique_id=568111007]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Explorer/Area2D" unique_id=868849624]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_iv6g5")
-
-[node name="Sprite2D" type="Sprite2D" parent="Explorer" unique_id=2143331418]
-texture = ExtResource("2_ec6vn")
+[node name="1-2" type="Node2D" unique_id=850633870]
 
 [node name="Slime" parent="." unique_id=1223112976 instance=ExtResource("3_ui2y0")]
 position = Vector2(1066, 332)
@@ -59,5 +26,3 @@ Use your offensive dash to slam against
 enemies and deal damage. But careful! If you
 get hit while in it, you’ll get double damage."
 horizontal_alignment = 1
-
-[connection signal="body_entered" from="Explorer/Area2D" to="Explorer" method="_on_body_entered"]
