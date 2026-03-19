@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://chnsec7h8rixv"]
+
+[node name="Arena2" type="Node2D" unique_id=1770738934]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1348932232]
+offset_right = 1150.0
+offset_bottom = 647.0
+color = Color(1, 0, 1, 1)

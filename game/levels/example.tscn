@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d1sf02o7x6ilx"]
+
+[ext_resource type="PackedScene" uid="uid://doy3t3spu26dr" path="res://game/levels/example/arena1.tscn" id="1_apeqv"]
+[ext_resource type="PackedScene" uid="uid://chnsec7h8rixv" path="res://game/levels/example/arena2.tscn" id="2_4df5a"]
+[ext_resource type="Script" uid="uid://btbxtklx550jt" path="res://game/map_elements/link.gd" id="3_4df5a"]
+
+[node name="Example" type="Node2D" unique_id=2110470734]
+
+[node name="Arena1" parent="." unique_id=1464520916 instance=ExtResource("1_apeqv")]
+
+[node name="Arena2" parent="." unique_id=1770738934 instance=ExtResource("2_4df5a")]
+position = Vector2(1186, -1)
+
+[node name="Link" type="Node" parent="." unique_id=1135385208 node_paths=PackedStringArray("first", "second")]
+script = ExtResource("3_4df5a")
+first = NodePath("../Arena1")
+second = NodePath("../Arena2")
+metadata/_custom_type_script = "uid://btbxtklx550jt"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2037265337]
+position = Vector2(1190, 325)

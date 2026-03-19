@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bhkv2ay5rxb2"]
 
-[ext_resource type="Script" uid="uid://dwm6e24i05bx0" path="res://game/bullet.gd" id="1_3mm70"]
+[ext_resource type="Script" uid="uid://dwm6e24i05bx0" path="res://game/enemies/bullet.gd" id="1_3mm70"]
 [ext_resource type="Texture2D" uid="uid://c1rf8jchwdkv4" path="res://assets/sprites/bullet.png" id="1_sgh50"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3mm70"]
