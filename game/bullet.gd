@@ -6,12 +6,12 @@ class_name Bullet
 
 
 func _physics_process(delta: float) -> void:
-	var collision = self.move_and_collide(self.direction * self.speed * delta)
-	
-	if collision == null:
-		return
-	
-	var collider = collision.get_collider()
-	if collider.has_signal("hit_by_bullet"):
-		collider.emit_signal("hit_by_bullet", self)
-	self.queue_free()
+    var collision = self.move_and_collide(self.direction * self.speed * delta)
+    
+    if collision == null:
+        return
+    
+    var collider = collision.get_collider()
+    if collider.has_signal("hit_by_bullet"):
+        collider.emit_signal("hit_by_bullet", self)
+    self.queue_free()
