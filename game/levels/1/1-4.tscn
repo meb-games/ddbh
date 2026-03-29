@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://dqfw742gmmwkn"]
 
+[ext_resource type="Script" uid="uid://d1u7tql8ei2jg" path="res://game/room.gd" id="1_r47lb"]
+[ext_resource type="Script" uid="uid://bsjpbjs8vkm25" path="res://game/wave.gd" id="3_jyr5y"]
 [ext_resource type="PackedScene" uid="uid://4hatbba444ei" path="res://game/map_elements/wall.tscn" id="3_tkc65"]
 [ext_resource type="PackedScene" uid="uid://dfclkrb7doq4n" path="res://game/enemies/golem/stone_golem.tscn" id="6_k47yq"]
 [ext_resource type="PackedScene" uid="uid://d2hvlcu1jknxy" path="res://game/enemies/golem/mud_golem.tscn" id="7_5lpb0"]
 
-[node name="1-4" type="Node2D" unique_id=95266555]
+[node name="1-4" type="Node2D" unique_id=637479780]
+script = ExtResource("1_r47lb")
+metadata/_custom_type_script = "uid://d1u7tql8ei2jg"
 
 [node name="Wall" parent="." unique_id=1121962823 instance=ExtResource("3_tkc65")]
 position = Vector2(539, 167)
@@ -24,18 +28,16 @@ position = Vector2(539, 399)
 [node name="Wall6" parent="." unique_id=511866800 instance=ExtResource("3_tkc65")]
 position = Vector2(539, 457)
 
-[node name="Wave 1" type="Node2D" parent="." unique_id=7808956]
-visible = false
-position = Vector2(1101, 313)
-scale = Vector2(0.5, 0.5)
+[node name="Wave 1" type="Node2D" parent="." unique_id=1130975652]
+script = ExtResource("3_jyr5y")
+metadata/_custom_type_script = "uid://bsjpbjs8vkm25"
 
 [node name="StoneGolem" parent="Wave 1" unique_id=2107590911 instance=ExtResource("6_k47yq")]
 scale = Vector2(1, 1)
 
-[node name="Wave 2" type="Node2D" parent="." unique_id=1836898927]
-visible = false
-position = Vector2(1105, 35)
-scale = Vector2(0.5, 0.5)
+[node name="Wave 2" type="Node2D" parent="." unique_id=1933177515]
+script = ExtResource("3_jyr5y")
+metadata/_custom_type_script = "uid://bsjpbjs8vkm25"
 
 [node name="MudGolem" parent="Wave 2" unique_id=1677922421 instance=ExtResource("7_5lpb0")]
 scale = Vector2(1, 1)
@@ -44,8 +46,9 @@ scale = Vector2(1, 1)
 position = Vector2(0, 1160)
 scale = Vector2(1, 1)
 
-[node name="Wave 3" type="Node2D" parent="." unique_id=524048306]
-visible = false
+[node name="Wave 3" type="Node2D" parent="." unique_id=1453159317]
+script = ExtResource("3_jyr5y")
+metadata/_custom_type_script = "uid://bsjpbjs8vkm25"
 
 [node name="StoneGolem2" parent="Wave 3" unique_id=1127276211 instance=ExtResource("6_k47yq")]
 position = Vector2(43, 313)
@@ -56,7 +59,9 @@ position = Vector2(47, 35)
 [node name="MudGolem4" parent="Wave 3" unique_id=1356020172 instance=ExtResource("7_5lpb0")]
 position = Vector2(47, 615)
 
-[node name="Wave 4" type="Node2D" parent="." unique_id=372995219]
+[node name="Wave 4" type="Node2D" parent="." unique_id=924481688]
+script = ExtResource("3_jyr5y")
+metadata/_custom_type_script = "uid://bsjpbjs8vkm25"
 
 [node name="StoneGolem3" parent="Wave 4" unique_id=961798719 instance=ExtResource("6_k47yq")]
 position = Vector2(1101, 313)

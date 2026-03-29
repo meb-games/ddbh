@@ -1,22 +1,28 @@
 [gd_scene format=3 uid="uid://cdwr2vge13tml"]
 
 [ext_resource type="PackedScene" uid="uid://bk1u71rmubed3" path="res://game/levels/1/1-2.tscn" id="1_dxuv8"]
+[ext_resource type="Script" uid="uid://d4f27i0cocfn8" path="res://game/level.gd" id="1_rhjvi"]
 [ext_resource type="PackedScene" uid="uid://bemb31mv0moki" path="res://game/map_elements/link.tscn" id="2_rhjvi"]
 [ext_resource type="PackedScene" uid="uid://c50375av8jgsp" path="res://game/levels/1/1-3.tscn" id="2_yrjd2"]
 [ext_resource type="PackedScene" uid="uid://dqfw742gmmwkn" path="res://game/levels/1/1-4.tscn" id="3_rhjvi"]
 
-[node name="1_tscn" type="Node2D" unique_id=2110256813]
+[node name="Level" type="Node2D" unique_id=554394681]
+script = ExtResource("1_rhjvi")
+metadata/_custom_type_script = "uid://d4f27i0cocfn8"
 
-[node name="1-2" parent="." unique_id=850633870 instance=ExtResource("1_dxuv8")]
-position = Vector2(-3, -4)
+[node name="1-2" parent="." unique_id=1508716568 instance=ExtResource("1_dxuv8")]
 
 [node name="Link" parent="." unique_id=283237789 node_paths=PackedStringArray("first", "second") instance=ExtResource("2_rhjvi")]
 position = Vector2(-3, -4)
 first = NodePath("../1-2")
 second = NodePath("../1-3")
 
-[node name="1-3" parent="." unique_id=1181130339 instance=ExtResource("2_yrjd2")]
-position = Vector2(1168, 4)
+[node name="1-3" parent="." unique_id=331846553 instance=ExtResource("2_yrjd2")]
+position = Vector2(1155, 0)
 
-[node name="1-4" parent="." unique_id=95266555 instance=ExtResource("3_rhjvi")]
-position = Vector2(-1, 714)
+[node name="Link2" parent="." unique_id=1158032978 node_paths=PackedStringArray("first", "second") instance=ExtResource("2_rhjvi")]
+first = NodePath("../1-3")
+second = NodePath("../1-4")
+
+[node name="1-4" parent="." unique_id=637479780 instance=ExtResource("3_rhjvi")]
+position = Vector2(2337, 7)

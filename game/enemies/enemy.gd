@@ -8,8 +8,8 @@ extends CharacterBody2D
 # 
 
 
-## How often (in seconds) this enemy performs actions.
-@export var ACTION_SPEED: float = 2.0
+## How often (in ticks) the enemy acts.
+@export var ACTION_SPEED: int = 120
 ## A scene that gets spawned by `spawn_attack`.
 @export var ATTACK: PackedScene = preload("res://game/enemies/bullet.tscn")
 
@@ -49,10 +49,14 @@ func move_by(direction: Vector2, distance: float):
 
 
 
-## Emitted when the explorer collides with this enemy.
 signal hit_by_explorer
-## Emitted when the enemy should take an action.
-signal act
+
+var _ticks_to_act: int = self.ACTION_SPEED
+func _tick():
+	self._ticks_to_act -= 1
+	if self._ticks_to_act == 0:
+		self._act($/root/Game/Explorer)
+		self._ticks_to_act = self.ACTION_SPEED
 
 ## Called when the enemy should take an action.
 func _act(explorer: CharacterBody2D):
@@ -82,7 +86,6 @@ func _notification(what: int) -> void:
 		NOTIFICATION_READY:
 			# Connect signals -> default callbacks
 			self.hit_by_explorer.connect(self._hit_by_explorer)
-			self.act.connect(self._act)
 			self.set_physics_process(true)
 			
 			# Sleep a random time between 0 and 1 seconds
@@ -95,7 +98,6 @@ func _notification(what: int) -> void:
 			timer.name = "EnemyActionTimer"
 			timer.autostart = true
 			timer.wait_time = self.ACTION_SPEED
-			timer.connect('timeout', func(): self.act.emit($/root/Game/Explorer))
 			self.add_child(timer)
 		
 		NOTIFICATION_PHYSICS_PROCESS:

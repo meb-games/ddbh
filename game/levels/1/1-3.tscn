@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://c50375av8jgsp"]
 
+[ext_resource type="Script" uid="uid://d1u7tql8ei2jg" path="res://game/room.gd" id="1_4tspj"]
+[ext_resource type="Script" uid="uid://bsjpbjs8vkm25" path="res://game/wave.gd" id="3_myfi6"]
 [ext_resource type="PackedScene" uid="uid://4hatbba444ei" path="res://game/map_elements/wall.tscn" id="7_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://d2hvlcu1jknxy" path="res://game/enemies/golem/mud_golem.tscn" id="7_vef74"]
 
-[node name="1-3" type="Node2D" unique_id=1181130339]
+[node name="1-3" type="Node2D" unique_id=331846553]
+script = ExtResource("1_4tspj")
+metadata/_custom_type_script = "uid://d1u7tql8ei2jg"
 
 [node name="Wall" parent="." unique_id=1121962823 instance=ExtResource("7_j5wjh")]
 modulate = Color(1, 0, 0, 1)
@@ -21,5 +25,9 @@ position = Vector2(537, 391)
 [node name="Wall4" parent="." unique_id=1337169513 instance=ExtResource("7_j5wjh")]
 position = Vector2(537, 449)
 
-[node name="MudGolem" parent="." unique_id=1677922421 instance=ExtResource("7_vef74")]
+[node name="Wave" type="Node2D" parent="." unique_id=1557753411]
+script = ExtResource("3_myfi6")
+metadata/_custom_type_script = "uid://bsjpbjs8vkm25"
+
+[node name="MudGolem" parent="Wave" unique_id=1677922421 instance=ExtResource("7_vef74")]
 position = Vector2(1095, 325)
