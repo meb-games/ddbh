@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 
 # Makes the explorer dash in the direction of the mouse.
 func start_dash(kind: PlayerState) -> void:
-	self.collision_mask = collision_mask & (~32)
+	self.collision_mask = self.collision_mask & (~32)
 	var mouse_pos := get_global_mouse_position()
 	self.state = kind
 	if constant_dash_distance:
@@ -64,7 +64,7 @@ func start_dash(kind: PlayerState) -> void:
 	if dash_dir == Vector2.ZERO:
 		dash_dir = Vector2.RIGHT # fallback if mouse exactly on explorer
 
-func _on_body_entered(body: Node) -> void:
+func _on_collision(body: Node) -> void:
 	if body.has_signal("hit_by_explorer"):
 		body.emit_signal("hit_by_explorer", self)
 

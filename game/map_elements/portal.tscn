@@ -6,6 +6,7 @@
 
 [node name="Portal" type="Area2D" unique_id=833729910]
 collision_layer = 16
+collision_mask = 16
 script = ExtResource("1_336ee")
 metadata/_custom_type_script = "uid://d0khaygba1gep"
 

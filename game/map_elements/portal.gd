@@ -2,13 +2,19 @@ extends Area2D
 
 @export var out: Node2D
 
-signal hit_by_explorer
-
 func _init() -> void:
-	self.hit_by_explorer.connect(func(explorer):
-		get_viewport().get_camera_2d().position = self.out.position + (get_viewport().get_visible_rect().size / 2)
-		explorer.position = self.out.position
+	self.body_entered.connect(func(explorer):
+		explorer.collision_layer = explorer.collision_layer & (~16)
+		
+		var viewport = get_viewport()
+		viewport.get_camera_2d().position = self.out.get_parent().position + (viewport.get_visible_rect().size / 2)
+		$/root/Game/UI.position = self.out.get_parent().position
+		explorer.position = self.out.position + self.out.get_parent().position
 		self.out.get_parent().get_parent().currentRoom = self.out.get_parent()
+		
+		await get_tree().create_timer(2.0).timeout
+		if explorer != null:
+			explorer.collision_layer = explorer.collision_layer | 16
 	)
 
 func _ready() -> void:

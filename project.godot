@@ -64,9 +64,9 @@ ingame_pause={
 
 [layer_names]
 
-2d_physics/layer_1="Player"
+2d_physics/layer_1="Explorer"
 2d_physics/layer_2="Enemies"
 2d_physics/layer_3="Bullets"
 2d_physics/layer_4="Environment"
-2d_physics/layer_5="Level Links"
+2d_physics/layer_5="Portals"
 2d_physics/layer_6="Bush"

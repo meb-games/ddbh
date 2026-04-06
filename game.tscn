@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://bfnpagbmka5qo" path="res://pause_menu.tscn" id="3_eow3j"]
 [ext_resource type="Script" uid="uid://qkys0o505fxc" path="res://game/explorer.gd" id="4_j5wjh"]
 [ext_resource type="Texture2D" uid="uid://23vxmoeodn8u" path="res://assets/sprites/explorer.png" id="5_vef74"]
-[ext_resource type="PackedScene" uid="uid://cl3ovpdijbouf" path="res://game/map_elements/bush.tscn" id="6_ryrav"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8a5ej"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -23,9 +22,6 @@ size = Vector2(102, 148)
 
 [node name="Game" type="Node2D" unique_id=1326768085]
 script = ExtResource("1_7jktm")
-
-[node name="Camera" type="Camera2D" parent="." unique_id=900507174]
-position = Vector2(576, 324)
 
 [node name="UI" type="Node2D" parent="." unique_id=568643083]
 
@@ -47,6 +43,9 @@ offset_right = 1152.0
 offset_bottom = 648.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8a5ej")
 
+[node name="Camera" type="Camera2D" parent="." unique_id=900507174]
+position = Vector2(576, 324)
+
 [node name="Attacks" type="Node2D" parent="." unique_id=505513074]
 
 [node name="Explorer" type="CharacterBody2D" parent="." unique_id=1332331262]
@@ -54,8 +53,8 @@ light_mask = 4
 z_index = 1
 position = Vector2(47, 325)
 scale = Vector2(0.5, 0.5)
-collision_layer = 2
-collision_mask = 19
+collision_layer = 17
+collision_mask = 35
 script = ExtResource("4_j5wjh")
 metadata/_custom_type_script = "uid://qkys0o505fxc"
 metadata/_edit_group_ = true
@@ -77,8 +76,5 @@ shape = SubResource("RectangleShape2D_i3gcu")
 [node name="Sprite2D" type="Sprite2D" parent="Explorer" unique_id=412627103]
 texture = ExtResource("5_vef74")
 
-[node name="Wall" parent="." unique_id=1121962823 instance=ExtResource("6_ryrav")]
-position = Vector2(414, 343)
-
-[connection signal="area_entered" from="Explorer/Area2D" to="Explorer" method="_on_body_entered"]
-[connection signal="body_entered" from="Explorer/Area2D" to="Explorer" method="_on_body_entered"]
+[connection signal="area_entered" from="Explorer/Area2D" to="Explorer" method="_on_collision"]
+[connection signal="body_entered" from="Explorer/Area2D" to="Explorer" method="_on_collision"]

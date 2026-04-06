@@ -25,5 +25,9 @@ position = Vector2(0, 335)
 scale = Vector2(0.30010644, 33.733162)
 out = NodePath("../../1-2/Portal")
 
+[node name="PlayerSpawn" type="Node2D" parent="1-3" unique_id=1856479746]
+position = Vector2(53, 334.99997)
+scale = Vector2(-47.882095, -63.996)
+
 [node name="1-4" parent="." unique_id=637479780 instance=ExtResource("3_rhjvi")]
 position = Vector2(2337, 7)
