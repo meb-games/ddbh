@@ -92,13 +92,6 @@ func _notification(what: int) -> void:
 			# This makes enemies that spawn at the same time still attack at
 			# slightly different times
 			await get_tree().create_timer(randf_range(0.0, 1.0)).timeout
-			
-			# Loop enemy actions
-			var timer = Timer.new()
-			timer.name = "EnemyActionTimer"
-			timer.autostart = true
-			timer.wait_time = self.ACTION_SPEED
-			self.add_child(timer)
 		
 		NOTIFICATION_PHYSICS_PROCESS:
 			var delta = Engine.time_scale / Engine.physics_ticks_per_second
