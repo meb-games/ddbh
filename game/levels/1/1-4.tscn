@@ -38,19 +38,18 @@ position = Vector2(539, 457)
 script = ExtResource("3_jyr5y")
 metadata/_custom_type_script = "uid://bsjpbjs8vkm25"
 
-[node name="StoneGolem" parent="Wave 1" unique_id=2107590911 instance=ExtResource("6_k47yq")]
-scale = Vector2(1, 1)
+[node name="StoneGolem4" parent="Wave 1" unique_id=2107590911 instance=ExtResource("6_k47yq")]
+position = Vector2(47, 35)
 
 [node name="Wave 2" type="Node2D" parent="." unique_id=1933177515]
 script = ExtResource("3_jyr5y")
 metadata/_custom_type_script = "uid://bsjpbjs8vkm25"
 
-[node name="MudGolem" parent="Wave 2" unique_id=1677922421 instance=ExtResource("7_5lpb0")]
-scale = Vector2(1, 1)
+[node name="MudGolem3" parent="Wave 2" unique_id=1677922421 instance=ExtResource("7_5lpb0")]
+position = Vector2(47, 35)
 
-[node name="MudGolem2" parent="Wave 2" unique_id=2127213257 instance=ExtResource("7_5lpb0")]
-position = Vector2(0, 1160)
-scale = Vector2(1, 1)
+[node name="MudGolem4" parent="Wave 2" unique_id=1968316627 instance=ExtResource("7_5lpb0")]
+position = Vector2(47, 615)
 
 [node name="Wave 3" type="Node2D" parent="." unique_id=1453159317]
 script = ExtResource("3_jyr5y")

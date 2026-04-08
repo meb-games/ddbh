@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dndkfseo70mhc" path="res://game/map_elements/bush.tscn" id="1_p17gd"]
 [ext_resource type="Script" uid="uid://d1u7tql8ei2jg" path="res://game/room.gd" id="1_x137j"]
+[ext_resource type="Script" uid="uid://bsjpbjs8vkm25" path="res://game/wave.gd" id="3_w7evu"]
 
 [sub_resource type="Curve2D" id="Curve2D_x137j"]
 _data = {
@@ -63,3 +64,7 @@ scale = Vector2(0.99296117, 1)
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1799973446]
 curve = SubResource("Curve2D_x137j")
+
+[node name="Wave" type="Node2D" parent="." unique_id=1523785680]
+script = ExtResource("3_w7evu")
+metadata/_custom_type_script = "uid://bsjpbjs8vkm25"
