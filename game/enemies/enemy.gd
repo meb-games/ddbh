@@ -75,7 +75,7 @@ func _hit_by_explorer(explorer: Explorer):
 
 ## Called if the enemy needs to stop (e.g. because the player has left the enemy's room).
 func _stop():
-	self.movement_speed = 0
+	pass
 
 
 

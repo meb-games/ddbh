@@ -10,10 +10,10 @@ func _init() -> void:
 		viewport.get_camera_2d().position = self.out_room().position + (viewport.get_visible_rect().size / 2)
 		$/root/Game/UI.position = self.out_room().position
 		explorer.position = self.out.position + self.out_room().position
-		self.out_room().get_parent().currentRoom = self.out_room()
+		self.level().currentRoom = self.out_room()
 		self.in_room()._on_explorer_exit()
 
-		await get_tree().create_timer(2.0).timeout
+		await get_tree().create_timer(.5).timeout
 		if explorer != null:
 			explorer.collision_layer = explorer.collision_layer | 16
 	)

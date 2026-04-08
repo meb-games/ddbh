@@ -48,3 +48,6 @@ func change_state(delay: float, new_state: GolemState):
 	self.state = GolemState.COOLDOWN
 	await get_tree().create_timer(delay).timeout
 	self.state = new_state
+
+func _stop():
+	self.movement_direction = Vector2.ZERO
