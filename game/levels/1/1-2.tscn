@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bk1u71rmubed3"]
 
-[ext_resource type="Script" uid="uid://d1u7tql8ei2jg" path="res://game/room.gd" id="1_uje7f"]
+[ext_resource type="Script" uid="uid://d1u7tql8ei2jg" path="res://game/room.gd" id="1_cwxd8"]
 [ext_resource type="Script" uid="uid://bsjpbjs8vkm25" path="res://game/wave.gd" id="2_cwxd8"]
 [ext_resource type="PackedScene" uid="uid://818s6eno5gc8" path="res://game/enemies/slime/slime.tscn" id="3_ui2y0"]
 
