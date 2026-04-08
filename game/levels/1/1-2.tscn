@@ -4,6 +4,12 @@
 [ext_resource type="Script" uid="uid://bsjpbjs8vkm25" path="res://game/wave.gd" id="2_cwxd8"]
 [ext_resource type="PackedScene" uid="uid://818s6eno5gc8" path="res://game/enemies/slime/slime.tscn" id="3_ui2y0"]
 
+[sub_resource type="Curve2D" id="Curve2D_cwxd8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1151, 0, 0, 0, 0, 0, 1149, 646, 0, 0, 0, 0, 0, 648, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1151, 0)
+}
+point_count = 5
+
 [node name="1-2" type="Node2D" unique_id=1508716568]
 script = ExtResource("1_uje7f")
 metadata/_custom_type_script = "uid://d1u7tql8ei2jg"
@@ -34,3 +40,6 @@ metadata/_custom_type_script = "uid://bsjpbjs8vkm25"
 
 [node name="Slime" parent="Wave" unique_id=1223112976 instance=ExtResource("3_ui2y0")]
 position = Vector2(1066, 332)
+
+[node name="Path2D" type="Path2D" parent="." unique_id=461982758]
+curve = SubResource("Curve2D_cwxd8")

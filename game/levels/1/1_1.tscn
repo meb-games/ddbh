@@ -1,41 +1,65 @@
 [gd_scene format=3 uid="uid://cd6lnpoqxq6wy"]
 
 [ext_resource type="PackedScene" uid="uid://dndkfseo70mhc" path="res://game/map_elements/bush.tscn" id="1_p17gd"]
+[ext_resource type="Script" uid="uid://d1u7tql8ei2jg" path="res://game/room.gd" id="1_x137j"]
 
-[node name="1-1" type="Node2D" unique_id=668070731]
+[sub_resource type="Curve2D" id="Curve2D_x137j"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1151, 0, 0, 0, 0, 0, 1149, 646, 0, 0, 0, 0, 0, 648, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1151, 0)
+}
+point_count = 5
+
+[node name="Level" type="Node2D" unique_id=1577613177]
+script = ExtResource("1_x137j")
+metadata/_custom_type_script = "uid://d1u7tql8ei2jg"
 
 [node name="Bush" parent="." unique_id=1121962823 instance=ExtResource("1_p17gd")]
 position = Vector2(552, 29)
+scale = Vector2(0.99296117, 1)
 
-[node name="Bush2" parent="." unique_id=1404825918 instance=ExtResource("1_p17gd")]
+[node name="Bush2" parent="." unique_id=1600719346 instance=ExtResource("1_p17gd")]
 position = Vector2(552, 87)
+scale = Vector2(0.99296117, 1)
 
-[node name="Bush3" parent="." unique_id=741436432 instance=ExtResource("1_p17gd")]
+[node name="Bush3" parent="." unique_id=2108793300 instance=ExtResource("1_p17gd")]
 position = Vector2(552, 134)
+scale = Vector2(0.99296117, 1)
 
-[node name="Bush4" parent="." unique_id=224061090 instance=ExtResource("1_p17gd")]
+[node name="Bush4" parent="." unique_id=1075313349 instance=ExtResource("1_p17gd")]
 position = Vector2(552, 192)
+scale = Vector2(0.99296117, 1)
 
-[node name="Bush5" parent="." unique_id=371106098 instance=ExtResource("1_p17gd")]
+[node name="Bush5" parent="." unique_id=933067766 instance=ExtResource("1_p17gd")]
 position = Vector2(552, 250)
+scale = Vector2(0.99296117, 1)
 
-[node name="Bush6" parent="." unique_id=173643690 instance=ExtResource("1_p17gd")]
+[node name="Bush6" parent="." unique_id=478068622 instance=ExtResource("1_p17gd")]
 position = Vector2(552, 297)
+scale = Vector2(0.99296117, 1)
 
-[node name="Bush7" parent="." unique_id=1737844092 instance=ExtResource("1_p17gd")]
+[node name="Bush7" parent="." unique_id=1567368570 instance=ExtResource("1_p17gd")]
 position = Vector2(552, 355)
+scale = Vector2(0.99296117, 1)
 
-[node name="Bush8" parent="." unique_id=2089225432 instance=ExtResource("1_p17gd")]
+[node name="Bush8" parent="." unique_id=704169968 instance=ExtResource("1_p17gd")]
 position = Vector2(552, 413)
+scale = Vector2(0.99296117, 1)
 
-[node name="Bush9" parent="." unique_id=1497781970 instance=ExtResource("1_p17gd")]
+[node name="Bush9" parent="." unique_id=592131278 instance=ExtResource("1_p17gd")]
 position = Vector2(552, 460)
+scale = Vector2(0.99296117, 1)
 
-[node name="Bush10" parent="." unique_id=2135432042 instance=ExtResource("1_p17gd")]
+[node name="Bush10" parent="." unique_id=528005514 instance=ExtResource("1_p17gd")]
 position = Vector2(552, 518)
+scale = Vector2(0.99296117, 1)
 
-[node name="Bush11" parent="." unique_id=1762443968 instance=ExtResource("1_p17gd")]
+[node name="Bush11" parent="." unique_id=787235799 instance=ExtResource("1_p17gd")]
 position = Vector2(552, 576)
+scale = Vector2(0.99296117, 1)
 
-[node name="Bush12" parent="." unique_id=1805241815 instance=ExtResource("1_p17gd")]
+[node name="Bush12" parent="." unique_id=1905182244 instance=ExtResource("1_p17gd")]
 position = Vector2(552, 634)
+scale = Vector2(0.99296117, 1)
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1799973446]
+curve = SubResource("Curve2D_x137j")
