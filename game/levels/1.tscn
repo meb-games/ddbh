@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dqfw742gmmwkn" path="res://game/levels/1/1-4.tscn" id="3_rhjvi"]
 [ext_resource type="PackedScene" path="res://game/map_elements/portal.tscn" id="3_vw7v0"]
 
-[node name="Level" type="Node2D" unique_id=554394681]
+[node name="Level" type="Node2D" unique_id=554394681 node_paths=PackedStringArray("startPosition")]
 script = ExtResource("1_rhjvi")
+startPosition = NodePath("Start Position")
 metadata/_custom_type_script = "uid://d4f27i0cocfn8"
 
 [node name="1-2" parent="." unique_id=1508716568 instance=ExtResource("1_dxuv8")]
@@ -31,3 +32,6 @@ scale = Vector2(-47.882095, -63.996)
 
 [node name="1-4" parent="." unique_id=637479780 instance=ExtResource("3_rhjvi")]
 position = Vector2(2337, 7)
+
+[node name="Start Position" type="Node2D" parent="." unique_id=169784995]
+position = Vector2(57, 308)

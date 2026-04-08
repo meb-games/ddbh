@@ -73,6 +73,10 @@ func _hit_by_explorer(explorer: Explorer):
 		if self.health == 0:
 			self.queue_free()
 
+## Called if the enemy needs to stop (e.g. because the player has left the enemy's room).
+func _stop():
+	self.movement_speed = 0
+
 
 
 # 
