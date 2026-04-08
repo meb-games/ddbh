@@ -16,10 +16,10 @@ const MAX_HEALTH = 10.0
 ## state.
 var state := PlayerState.Normal
 enum PlayerState {
-	DefensiveDash = 0,
-	Normal = 1,
-	OffensiveDash = 2,
-	Hit = 3
+    DefensiveDash = 0,
+    Normal = 1,
+    OffensiveDash = 2,
+    Hit = 3
 }
 const STATE_COLOURS = [Color.BLUE, Color.WHITE, Color.ORANGE, Color.RED]
 var invi_frames = 5
@@ -31,42 +31,42 @@ var dash_distance := 0.0
 signal health_changed(float)
 
 func _init() -> void:
-	self.hit_by_bullet.connect(self._hit_by_bullet)
+    self.hit_by_bullet.connect(self._hit_by_bullet)
 
 func _physics_process(delta: float) -> void:
-	if self.state == PlayerState.Normal:
-		self.velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * speed * delta
-	else:
-		self.velocity = (dash_dir * dash_speed * delta).limit_length(dash_distance)
-		self.dash_distance -= velocity.length()
-		
-		if dash_distance <= 0.50:
-			self.state = PlayerState.Normal
-			self.velocity = Vector2.ZERO
-			self.collision_mask = self.collision_mask | 32
-	self.move_and_collide(self.velocity)
+    if self.state == PlayerState.Normal:
+        self.velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * speed * delta
+    else:
+        self.velocity = (dash_dir * dash_speed * delta).limit_length(dash_distance)
+        self.dash_distance -= velocity.length()
+        
+        if dash_distance <= 0.50:
+            self.state = PlayerState.Normal
+            self.velocity = Vector2.ZERO
+            self.collision_mask = self.collision_mask | 32
+    self.move_and_collide(self.velocity)
 
-	if Input.is_action_just_pressed("dash_defensive"):
-		start_dash(PlayerState.DefensiveDash)
-	elif Input.is_action_just_pressed("dash_offensive"):
-		start_dash(PlayerState.OffensiveDash)
+    if Input.is_action_just_pressed("dash_defensive"):
+        start_dash(PlayerState.DefensiveDash)
+    elif Input.is_action_just_pressed("dash_offensive"):
+        start_dash(PlayerState.OffensiveDash)
 
 # Makes the explorer dash in the direction of the mouse.
 func start_dash(kind: PlayerState) -> void:
-	self.collision_mask = self.collision_mask & (~32)
-	var mouse_pos := get_global_mouse_position()
-	self.state = kind
-	if constant_dash_distance:
-		dash_distance = max_dash_distance
-	else:
-		dash_distance = min(self.position.distance_to(mouse_pos), max_dash_distance)
-	dash_dir = self.position.direction_to(mouse_pos)
-	if dash_dir == Vector2.ZERO:
-		dash_dir = Vector2.RIGHT # fallback if mouse exactly on explorer
+    self.collision_mask = self.collision_mask & (~32)
+    var mouse_pos := get_global_mouse_position()
+    self.state = kind
+    if constant_dash_distance:
+        dash_distance = max_dash_distance
+    else:
+        dash_distance = min(self.position.distance_to(mouse_pos), max_dash_distance)
+    dash_dir = self.position.direction_to(mouse_pos)
+    if dash_dir == Vector2.ZERO:
+        dash_dir = Vector2.RIGHT # fallback if mouse exactly on explorer
 
 func _on_collision(body: Node) -> void:
-	if body.has_signal("hit_by_explorer"):
-		body.emit_signal("hit_by_explorer", self)
+    if body.has_signal("hit_by_explorer"):
+        body.emit_signal("hit_by_explorer", self)
 
 
 # 
@@ -77,33 +77,33 @@ func _on_collision(body: Node) -> void:
 
 signal hit_by_bullet
 func _hit_by_bullet(_bullet: Bullet) -> void:
-	match self.state:
-		PlayerState.Normal, PlayerState.OffensiveDash:
-			var dmg = 1 * self.state
-			self.state = PlayerState.Hit
-			self.invi_frames = 5
-			
-			self.health -= dmg
-			if self.health <= 0:
-				get_tree().change_scene_to_file.call_deferred("res://game_over.tscn")
-			
-			self.health_changed.emit(self.health)
-		PlayerState.DefensiveDash, PlayerState.Hit:
-			pass
+    match self.state:
+        PlayerState.Normal, PlayerState.OffensiveDash:
+            var dmg = 1 * self.state
+            self.state = PlayerState.Hit
+            self.invi_frames = 5
+            
+            self.health -= dmg
+            if self.health <= 0:
+                get_tree().change_scene_to_file.call_deferred("res://game_over.tscn")
+            
+            self.health_changed.emit(self.health)
+        PlayerState.DefensiveDash, PlayerState.Hit:
+            pass
 
 func _process(delta: float) -> void:
-	match self.state:
-		PlayerState.Normal:
-			$/root/Game/UI/DashColour['theme_override_styles/panel'].border_color = Color.TRANSPARENT
-			self.modulate = Color.WHITE
-		PlayerState.DefensiveDash:
-			$/root/Game/UI/DashColour['theme_override_styles/panel'].border_color = Color.BLUE
-		PlayerState.OffensiveDash:
-			$/root/Game/UI/DashColour['theme_override_styles/panel'].border_color = Color.RED
-		PlayerState.Hit:
-			self.invi_frames -= 1
-			self.modulate = Color.RED
-			print(self.invi_frames)
-			if self.invi_frames == 0:
-				self.state = PlayerState.Normal
-				self.invi_frames = 5
+    match self.state:
+        PlayerState.Normal:
+            $/root/Game/UI/DashColour['theme_override_styles/panel'].border_color = Color.TRANSPARENT
+            self.modulate = Color.WHITE
+        PlayerState.DefensiveDash:
+            $/root/Game/UI/DashColour['theme_override_styles/panel'].border_color = Color.BLUE
+        PlayerState.OffensiveDash:
+            $/root/Game/UI/DashColour['theme_override_styles/panel'].border_color = Color.RED
+        PlayerState.Hit:
+            self.invi_frames -= 1
+            self.modulate = Color.RED
+            print(self.invi_frames)
+            if self.invi_frames == 0:
+                self.state = PlayerState.Normal
+                self.invi_frames = 5

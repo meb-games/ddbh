@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cd6lnpoqxq6wy"]
+
+[ext_resource type="PackedScene" uid="uid://dndkfseo70mhc" path="res://game/map_elements/bush.tscn" id="1_p17gd"]
+
+[node name="1-1" type="Node2D" unique_id=668070731]
+
+[node name="Bush" parent="." unique_id=1121962823 instance=ExtResource("1_p17gd")]
+position = Vector2(552, 29)
+
+[node name="Bush2" parent="." unique_id=1404825918 instance=ExtResource("1_p17gd")]
+position = Vector2(552, 87)
+
+[node name="Bush3" parent="." unique_id=741436432 instance=ExtResource("1_p17gd")]
+position = Vector2(552, 134)
+
+[node name="Bush4" parent="." unique_id=224061090 instance=ExtResource("1_p17gd")]
+position = Vector2(552, 192)
+
+[node name="Bush5" parent="." unique_id=371106098 instance=ExtResource("1_p17gd")]
+position = Vector2(552, 250)
+
+[node name="Bush6" parent="." unique_id=173643690 instance=ExtResource("1_p17gd")]
+position = Vector2(552, 297)
+
+[node name="Bush7" parent="." unique_id=1737844092 instance=ExtResource("1_p17gd")]
+position = Vector2(552, 355)
+
+[node name="Bush8" parent="." unique_id=2089225432 instance=ExtResource("1_p17gd")]
+position = Vector2(552, 413)
+
+[node name="Bush9" parent="." unique_id=1497781970 instance=ExtResource("1_p17gd")]
+position = Vector2(552, 460)
+
+[node name="Bush10" parent="." unique_id=2135432042 instance=ExtResource("1_p17gd")]
+position = Vector2(552, 518)
+
+[node name="Bush11" parent="." unique_id=1762443968 instance=ExtResource("1_p17gd")]
+position = Vector2(552, 576)
+
+[node name="Bush12" parent="." unique_id=1805241815 instance=ExtResource("1_p17gd")]
+position = Vector2(552, 634)
