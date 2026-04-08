@@ -11,3 +11,8 @@ func currentWave() -> Wave:
 func _ready() -> void:
 	if self.get_parent() is not Level:
 		printerr("Rooms must be children of a level")
+
+
+func _on_explorer_exit() -> void:
+	for enemy in self.currentWave().get_children():
+		enemy._stop()
