@@ -24,6 +24,8 @@ size = Vector2(102, 148)
 script = ExtResource("1_7jktm")
 
 [node name="UI" type="Node2D" parent="." unique_id=568643083]
+top_level = true
+z_index = 5
 
 [node name="HealthBar" type="ProgressBar" parent="UI" unique_id=73078586]
 offset_left = 448.0
