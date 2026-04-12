@@ -8,6 +8,7 @@ size = Vector2(106, 201)
 
 [node name="Mage" type="CharacterBody2D" unique_id=324492001]
 collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_fkfi6")
 metadata/_custom_type_script = "uid://htph4rr622cf"
 metadata/_edit_group_ = true

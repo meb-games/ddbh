@@ -17,13 +17,13 @@ var state := GolemState.FOLLOW
 var can_charged_slam := true
 
 func _init():
-	self.ACTION_SPEED = 1.0 / Engine.physics_ticks_per_second
+	self.ACTION_SPEED = 1
 
 func _act(explorer: CharacterBody2D):
 	match self.state:
 		GolemState.FOLLOW:
-			self.movement_direction = self.position.direction_to(explorer.position)
-			self.check_state(self.position.distance_to(explorer.position))
+			self.movement_direction = self.global_position.direction_to(explorer.global_position)
+			self.check_state(self.global_position.distance_to(explorer.global_position))
 		
 		GolemState.START_SLAM:
 			print("telegraphing slam")

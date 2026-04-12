@@ -103,7 +103,6 @@ func _process(delta: float) -> void:
 		PlayerState.Hit:
 			self.invi_frames -= 1
 			self.modulate = Color.RED
-			print(self.invi_frames)
 			if self.invi_frames == 0:
 				self.state = PlayerState.Normal
 				self.invi_frames = 5

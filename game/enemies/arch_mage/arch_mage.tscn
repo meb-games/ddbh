@@ -6,14 +6,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_af58e"]
 size = Vector2(106, 201)
 
-[node name="ArchMage" type="CharacterBody2D"]
+[node name="ArchMage" type="CharacterBody2D" unique_id=1553919816]
 collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_un3ot")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1781284661]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_af58e")
 
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=1694812903]
 position = Vector2(0, -0.5)
 texture = ExtResource("2_pmi0t")
