@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://4hatbba444ei"]
 
+[ext_resource type="Script" uid="uid://ftpetskkihnr" path="res://game/map_elements/wall.gd" id="1_ce57j"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ohgd"]
 size = Vector2(58, 58)
 
@@ -8,6 +10,7 @@ size = Vector2(58, 58)
 [node name="Wall" type="StaticBody2D" unique_id=1121962823]
 collision_layer = 8
 collision_mask = 7
+script = ExtResource("1_ce57j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1897683681]
 shape = SubResource("RectangleShape2D_1ohgd")

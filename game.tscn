@@ -6,6 +6,19 @@
 [ext_resource type="Script" uid="uid://qkys0o505fxc" path="res://game/explorer.gd" id="4_j5wjh"]
 [ext_resource type="Texture2D" uid="uid://23vxmoeodn8u" path="res://assets/sprites/explorer.png" id="5_vef74"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jktm"]
+bg_color = Color(0.4648739, 0.4648739, 0.4648739, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryrav"]
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8a5ej"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_left = 5
@@ -28,10 +41,13 @@ top_level = true
 z_index = 5
 
 [node name="HealthBar" type="ProgressBar" parent="UI" unique_id=73078586]
+z_index = 1
 offset_left = 448.0
 offset_top = 25.0
 offset_right = 630.0
 offset_bottom = 52.0
+theme_override_styles/background = SubResource("StyleBoxFlat_7jktm")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ryrav")
 max_value = 10.0
 value = 10.0
 show_percentage = false

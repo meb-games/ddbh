@@ -3,14 +3,9 @@
 [ext_resource type="Script" uid="uid://d1u7tql8ei2jg" path="res://game/room.gd" id="1_r47lb"]
 [ext_resource type="Script" uid="uid://bsjpbjs8vkm25" path="res://game/wave.gd" id="3_jyr5y"]
 [ext_resource type="PackedScene" uid="uid://4hatbba444ei" path="res://game/map_elements/wall.tscn" id="3_tkc65"]
+[ext_resource type="PackedScene" uid="uid://dkurut0abwxm0" path="res://game/map_elements/border.tscn" id="6_csj0j"]
 [ext_resource type="PackedScene" uid="uid://dfclkrb7doq4n" path="res://game/enemies/golem/stone_golem.tscn" id="6_k47yq"]
 [ext_resource type="PackedScene" uid="uid://d2hvlcu1jknxy" path="res://game/enemies/golem/mud_golem.tscn" id="7_5lpb0"]
-
-[sub_resource type="Curve2D" id="Curve2D_jyr5y"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1151, 0, 0, 0, 0, 0, 1149, 646, 0, 0, 0, 0, 0, 648, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1151, 0)
-}
-point_count = 5
 
 [node name="1-4" type="Node2D" unique_id=637479780]
 script = ExtResource("1_r47lb")
@@ -77,5 +72,4 @@ position = Vector2(1104, 35)
 [node name="StoneGolem5" parent="Wave 4" unique_id=499413543 instance=ExtResource("6_k47yq")]
 position = Vector2(1105, 615)
 
-[node name="Path2D" type="Path2D" parent="." unique_id=925052387]
-curve = SubResource("Curve2D_jyr5y")
+[node name="Border" parent="." unique_id=443770384 instance=ExtResource("6_csj0j")]

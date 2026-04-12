@@ -2,14 +2,9 @@
 
 [ext_resource type="Script" uid="uid://d1u7tql8ei2jg" path="res://game/room.gd" id="1_4tspj"]
 [ext_resource type="Script" uid="uid://bsjpbjs8vkm25" path="res://game/wave.gd" id="3_myfi6"]
+[ext_resource type="PackedScene" uid="uid://dkurut0abwxm0" path="res://game/map_elements/border.tscn" id="5_d8fal"]
 [ext_resource type="PackedScene" uid="uid://4hatbba444ei" path="res://game/map_elements/wall.tscn" id="7_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://d2hvlcu1jknxy" path="res://game/enemies/golem/mud_golem.tscn" id="7_vef74"]
-
-[sub_resource type="Curve2D" id="Curve2D_myfi6"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1151, 0, 0, 0, 0, 0, 1149, 646, 0, 0, 0, 0, 0, 648, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1151, 0)
-}
-point_count = 5
 
 [node name="1-3" type="Node2D" unique_id=331846553]
 script = ExtResource("1_4tspj")
@@ -38,5 +33,4 @@ metadata/_custom_type_script = "uid://bsjpbjs8vkm25"
 [node name="MudGolem" parent="Wave" unique_id=1677922421 instance=ExtResource("7_vef74")]
 position = Vector2(1095, 325)
 
-[node name="Path2D" type="Path2D" parent="." unique_id=2001797143]
-curve = SubResource("Curve2D_myfi6")
+[node name="Border" parent="." unique_id=443770384 instance=ExtResource("5_d8fal")]
