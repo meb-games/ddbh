@@ -66,7 +66,6 @@ func _act(explorer: CharacterBody2D):
 func _colliding_with_explorer(explorer: Explorer):
 	var current_tick: int = $/root/Game.tick
 	var last_collision_in_state = self.last_player_collision_tick.get(explorer.state, 0)
-	print(last_collision_in_state)
 	if current_tick - last_collision_in_state > 1:
 		self._hit_by_explorer(explorer)
 	self.last_player_collision_tick.set(explorer.state, current_tick)
@@ -96,6 +95,9 @@ func _stop():
 
 func _notification(what: int) -> void:
 	match what:
+		NOTIFICATION_PREDELETE:
+			self.get_parent().get_parent()._on_enemy_die()
+		
 		NOTIFICATION_READY:
 			# Connect signals -> default callbacks
 			self.set_physics_process(true)

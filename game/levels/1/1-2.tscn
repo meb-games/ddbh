@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://818s6eno5gc8" path="res://game/enemies/slime/slime.tscn" id="3_ui2y0"]
 [ext_resource type="PackedScene" uid="uid://dkurut0abwxm0" path="res://game/map_elements/border.tscn" id="4_ec6vn"]
 
-[node name="1-2" type="Node2D" unique_id=1508716568]
+[node name="1-2" type="Node2D" unique_id=613223395]
 script = ExtResource("1_uje7f")
 metadata/_custom_type_script = "uid://d1u7tql8ei2jg"
 
