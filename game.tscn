@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c8n6lloyoc33u" path="res://health_bar.gd" id="2_ryrav"]
 [ext_resource type="PackedScene" uid="uid://bfnpagbmka5qo" path="res://pause_menu.tscn" id="3_eow3j"]
 [ext_resource type="Script" uid="uid://qkys0o505fxc" path="res://game/explorer.gd" id="4_j5wjh"]
+[ext_resource type="Shape2D" uid="uid://by5n3dsnjhh38" path="res://assets/player_collision_shape.tres" id="5_ryrav"]
 [ext_resource type="Texture2D" uid="uid://23vxmoeodn8u" path="res://assets/sprites/explorer.png" id="5_vef74"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jktm"]
@@ -26,12 +27,6 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.8, 0.8, 0.8, 0)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qy71"]
-size = Vector2(102, 151)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3gcu"]
-size = Vector2(102, 148)
 
 [node name="Game" type="Node2D" unique_id=1326768085]
 script = ExtResource("1_7jktm")
@@ -73,26 +68,24 @@ position = Vector2(47, 325)
 scale = Vector2(0.5, 0.5)
 collision_layer = 17
 collision_mask = 43
+collision_priority = 0.0
 script = ExtResource("4_j5wjh")
 metadata/_custom_type_script = "uid://qkys0o505fxc"
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Explorer" unique_id=69619379]
-shape = SubResource("RectangleShape2D_5qy71")
+shape = ExtResource("5_ryrav")
 
 [node name="DashTimer" type="Timer" parent="Explorer" unique_id=1771719631]
 wait_time = 0.1
 one_shot = true
 
 [node name="Area2D" type="Area2D" parent="Explorer" unique_id=1865996286]
+scale = Vector2(1.001, 1.001)
 collision_mask = 65535
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Explorer/Area2D" unique_id=1111703321]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_i3gcu")
+shape = ExtResource("5_ryrav")
 
 [node name="Sprite2D" type="Sprite2D" parent="Explorer" unique_id=412627103]
 texture = ExtResource("5_vef74")
-
-[connection signal="area_entered" from="Explorer/Area2D" to="Explorer" method="_on_collision"]
-[connection signal="body_entered" from="Explorer/Area2D" to="Explorer" method="_on_collision"]

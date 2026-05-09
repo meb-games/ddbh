@@ -30,6 +30,8 @@ extends CharacterBody2D
 var movement_distance = null
 ## The direction the enemy is moving in.
 var movement_direction := Vector2(0, 0)
+## The last tick number when the player collided with this enemy, sorted by player states..
+var last_player_collision_tick: Dictionary[Explorer.PlayerState, int] = {}
 
 func spawn_attack() -> Node2D:
 	var attack = self.ATTACK.instantiate()
@@ -49,8 +51,6 @@ func move_by(direction: Vector2, distance: float):
 
 
 
-signal hit_by_explorer
-
 var _ticks_to_act: int = self.ACTION_SPEED
 func _tick():
 	self._ticks_to_act -= 1
@@ -61,6 +61,15 @@ func _tick():
 ## Called when the enemy should take an action.
 func _act(explorer: CharacterBody2D):
 	pass
+
+## Called every frame the enemy is colliding with the explorer.
+func _colliding_with_explorer(explorer: Explorer):
+	var current_tick: int = $/root/Game.tick
+	var last_collision_in_state = self.last_player_collision_tick.get(explorer.state, 0)
+	print(last_collision_in_state)
+	if current_tick - last_collision_in_state > 1:
+		self._hit_by_explorer(explorer)
+	self.last_player_collision_tick.set(explorer.state, current_tick)
 
 ## Called when the enemy collides with the explorer.
 ##
@@ -89,7 +98,6 @@ func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_READY:
 			# Connect signals -> default callbacks
-			self.hit_by_explorer.connect(self._hit_by_explorer)
 			self.set_physics_process(true)
 			
 			# Sleep a random time between 0 and 1 seconds

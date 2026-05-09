@@ -64,10 +64,6 @@ func start_dash(kind: PlayerState) -> void:
 	if dash_dir == Vector2.ZERO:
 		dash_dir = Vector2.RIGHT # fallback if mouse exactly on explorer
 
-func _on_collision(body: Node) -> void:
-	if body.has_signal("hit_by_explorer"):
-		body.emit_signal("hit_by_explorer", self)
-
 
 # 
 # Signals
@@ -106,3 +102,9 @@ func _process(delta: float) -> void:
 			if self.invi_frames == 0:
 				self.state = PlayerState.Normal
 				self.invi_frames = 5
+	
+	for node in $Area2D.get_overlapping_bodies():
+		if node is Enemy:
+			node._colliding_with_explorer(self)
+		elif node is CollisionShape2D:
+			print("bruh")
