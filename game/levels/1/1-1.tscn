@@ -62,3 +62,23 @@ script = ExtResource("3_w7evu")
 metadata/_custom_type_script = "uid://bsjpbjs8vkm25"
 
 [node name="Border" parent="." unique_id=443770384 instance=ExtResource("4_yoa3h")]
+
+[node name="Label2" type="Label" parent="." unique_id=1971200063]
+offset_left = 133.0
+offset_top = 27.0
+offset_right = 363.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 32
+text = "Defensive dash"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=1036395078]
+custom_minimum_size = Vector2(230, 0)
+offset_left = 32.0
+offset_top = 84.0
+offset_right = 464.0
+offset_bottom = 202.0
+text = "Use your defensive dash to gain temporary invulnerability and dash forward rapidly. Try to go past these bushes first. But careful! If you
+get hit while in it, you’ll get double damage."
+horizontal_alignment = 1
+autowrap_mode = 3
