@@ -70,3 +70,5 @@ ingame_pause={
 2d_physics/layer_4="Environment"
 2d_physics/layer_5="Portals"
 2d_physics/layer_6="Bush"
+2d_physics/layer_7="Explorer - Offensive Dash"
+2d_physics/layer_8="Explorer - Defensive Dash"
