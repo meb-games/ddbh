@@ -34,14 +34,14 @@ var movement_direction := Vector2(0, 0)
 var last_player_collision_tick: Dictionary[Explorer.PlayerState, int] = {}
 
 func spawn_attack() -> Node2D:
-	var attack = self.ATTACK.instantiate()
-	attack.position = self.position
-	$/root/Game/Attacks.add_child(attack)
-	return attack
+    var attack = self.ATTACK.instantiate()
+    attack.position = self.position
+    $/root/Game/Attacks.add_child(attack)
+    return attack
 
 func move_by(direction: Vector2, distance: float):
-	self.movement_direction = direction
-	self.movement_distance = direction * distance
+    self.movement_direction = direction
+    self.movement_distance = direction * distance
 
 
 
@@ -53,37 +53,37 @@ func move_by(direction: Vector2, distance: float):
 
 var _ticks_to_act: int = self.ACTION_SPEED
 func _tick():
-	self._ticks_to_act -= 1
-	if self._ticks_to_act == 0:
-		self._act($/root/Game/Explorer)
-		self._ticks_to_act = self.ACTION_SPEED
+    self._ticks_to_act -= 1
+    if self._ticks_to_act == 0:
+        self._act($/root/Game/Explorer)
+        self._ticks_to_act = self.ACTION_SPEED
 
 ## Called when the enemy should take an action.
 func _act(explorer: CharacterBody2D):
-	pass
+    pass
 
 ## Called every frame the enemy is colliding with the explorer.
 func _colliding_with_explorer(explorer: Explorer):
-	var current_tick: int = $/root/Game.tick
-	var last_collision_in_state = self.last_player_collision_tick.get(explorer.state, 0)
-	if current_tick - last_collision_in_state > 1:
-		self._hit_by_explorer(explorer)
-	self.last_player_collision_tick.set(explorer.state, current_tick)
+    var current_tick: int = $/root/Game.tick
+    var last_collision_in_state = self.last_player_collision_tick.get(explorer.state, 0)
+    if current_tick - last_collision_in_state > 1:
+        self._hit_by_explorer(explorer)
+    self.last_player_collision_tick.set(explorer.state, current_tick)
 
 ## Called when the enemy collides with the explorer.
 ##
 ## The default implementation just makes the enemy lose a health if the player was offensively
 ## dashing.
 func _hit_by_explorer(explorer: Explorer):
-	if explorer.state == Explorer.PlayerState.OffensiveDash:
-		self.health -= 1
-	
-		if self.health == 0:
-			self.queue_free()
+    if explorer.state == Explorer.PlayerState.OffensiveDash:
+        self.health -= 1
+    
+        if self.health == 0:
+            self.queue_free()
 
 ## Called if the enemy needs to stop (e.g. because the player has left the enemy's room).
 func _stop():
-	pass
+    pass
 
 
 
@@ -94,35 +94,35 @@ func _stop():
 
 
 func _notification(what: int) -> void:
-	match what:
-		NOTIFICATION_PREDELETE:
-			self.get_parent().get_parent()._on_enemy_die()
-		
-		NOTIFICATION_READY:
-			# Connect signals -> default callbacks
-			self.set_physics_process(true)
-			
-			# Sleep a random time between 0 and 1 seconds
-			# This makes enemies that spawn at the same time still attack at
-			# slightly different times
-			await get_tree().create_timer(randf_range(0.0, 1.0)).timeout
-		
-		NOTIFICATION_PHYSICS_PROCESS:
-			var delta = Engine.time_scale / Engine.physics_ticks_per_second
-			self.velocity = self.movement_speed * self.movement_direction * delta
-			
-			if self.movement_distance != null: 
-				# Prevent overshooting the enemy's max position
-				var adistance = self.movement_distance.abs()
-				var amovement = self.velocity.abs()
-				# vector < other != (vector.x < other.x && vector.y < other.y)
-				# idk why
-				if adistance.x < amovement.x && adistance.y < amovement.y:
-					self.velocity = self.movement_distance
-				
-				self.movement_distance -= self.velocity
-				
-				if adistance.x <= self.MOVEMENT_TOLERANCE.x && adistance.y <= self.MOVEMENT_TOLERANCE.y:
-					self.movement_direction = Vector2.ZERO
-			
-			self.move_and_collide(self.velocity)
+    match what:
+        NOTIFICATION_PREDELETE:
+            self.get_parent().get_parent()._on_enemy_die()
+        
+        NOTIFICATION_READY:
+            # Connect signals -> default callbacks
+            self.set_physics_process(true)
+            
+            # Sleep a random time between 0 and 1 seconds
+            # This makes enemies that spawn at the same time still attack at
+            # slightly different times
+            await get_tree().create_timer(randf_range(0.0, 1.0)).timeout
+        
+        NOTIFICATION_PHYSICS_PROCESS:
+            var delta = Engine.time_scale / Engine.physics_ticks_per_second
+            self.velocity = self.movement_speed * self.movement_direction * delta
+            
+            if self.movement_distance != null: 
+                # Prevent overshooting the enemy's max position
+                var adistance = self.movement_distance.abs()
+                var amovement = self.velocity.abs()
+                # vector < other != (vector.x < other.x && vector.y < other.y)
+                # idk why
+                if adistance.x < amovement.x && adistance.y < amovement.y:
+                    self.velocity = self.movement_distance
+                
+                self.movement_distance -= self.velocity
+                
+                if adistance.x <= self.MOVEMENT_TOLERANCE.x && adistance.y <= self.MOVEMENT_TOLERANCE.y:
+                    self.movement_direction = Vector2.ZERO
+            
+            self.move_and_collide(self.velocity)
