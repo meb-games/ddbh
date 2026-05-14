@@ -8,8 +8,8 @@ size = Vector2(188, 131)
 
 [node name="StoneGolem" type="CharacterBody2D" unique_id=2107590911]
 scale = Vector2(0.5, 0.5)
-collision_layer = 2
-collision_mask = 9
+collision_layer = 7
+collision_mask = 16
 script = ExtResource("1_j3bhv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1434792940]

@@ -19,9 +19,9 @@ func _init() -> void:
 	)
 
 func enable():
-	self.collision_mask |= 16
+	self.collision_mask |= 0
 func disable():
-	self.collision_mask = self.collision_layer & ~16
+	self.collision_mask = self.collision_layer & 0
 
 func in_room() -> Room:
 	return self.get_parent()

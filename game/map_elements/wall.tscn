@@ -8,8 +8,8 @@ size = Vector2(58, 58)
 [sub_resource type="CanvasTexture" id="CanvasTexture_1ohgd"]
 
 [node name="Wall" type="StaticBody2D" unique_id=1121962823]
-collision_layer = 8
-collision_mask = 7
+collision_layer = 23
+collision_mask = 0
 script = ExtResource("1_ce57j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1897683681]

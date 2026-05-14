@@ -64,11 +64,11 @@ ingame_pause={
 
 [layer_names]
 
-2d_physics/layer_1="Explorer"
-2d_physics/layer_2="Enemies"
-2d_physics/layer_3="Bullets"
-2d_physics/layer_4="Environment"
-2d_physics/layer_5="Portals"
-2d_physics/layer_6="Bush"
-2d_physics/layer_7="Explorer - Offensive Dash"
-2d_physics/layer_8="Explorer - Defensive Dash"
+2d_physics/layer_1="Explorer- Defensive Dash"
+2d_physics/layer_2="Explorer - No Dash"
+2d_physics/layer_3="Explorer - Offensive Dash"
+2d_physics/layer_4="Layer 4"
+2d_physics/layer_5="Enemies"
+2d_physics/layer_6="Portals"
+2d_physics/layer_7="Layer 7"
+2d_physics/layer_8="Layer 8"

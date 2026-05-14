@@ -27,6 +27,7 @@ var invi_frames = 5
 var dash_dir := Vector2.ZERO
 ## How much farther the explorer needs to dash
 var dash_distance := 0.0
+const DEFAULT_COLLISION_MASK := 1 << 5
 
 signal health_changed(float)
 
@@ -42,8 +43,8 @@ func _physics_process(delta: float) -> void:
 		
 		if dash_distance <= 0.50:
 			self.state = PlayerState.Normal
+			self.update_collision()
 			self.velocity = Vector2.ZERO
-			self.collision_mask = self.collision_mask | 32
 	self.move_and_collide(self.velocity)
 
 	if Input.is_action_just_pressed("dash_defensive"):
@@ -53,9 +54,9 @@ func _physics_process(delta: float) -> void:
 
 # Makes the explorer dash in the direction of the mouse.
 func start_dash(kind: PlayerState) -> void:
-	self.collision_mask = self.collision_mask & (~32)
 	var mouse_pos := get_global_mouse_position()
 	self.state = kind
+	self.update_collision()
 	if constant_dash_distance:
 		dash_distance = max_dash_distance
 	else:
@@ -64,6 +65,8 @@ func start_dash(kind: PlayerState) -> void:
 	if dash_dir == Vector2.ZERO:
 		dash_dir = Vector2.RIGHT # fallback if mouse exactly on explorer
 
+func update_collision():
+	self.collision_mask = DEFAULT_COLLISION_MASK | (1 << self.state)
 
 # 
 # Signals
