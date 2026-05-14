@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://d1u7tql8ei2jg" path="res://game/room.gd" id="1_x137j"]
 [ext_resource type="Script" uid="uid://bsjpbjs8vkm25" path="res://game/wave.gd" id="3_w7evu"]
 [ext_resource type="PackedScene" uid="uid://dkurut0abwxm0" path="res://game/map_elements/border.tscn" id="4_yoa3h"]
+[ext_resource type="PackedScene" uid="uid://dtbrgjilsxuhq" path="res://game/map_elements/mouse_icon.tscn" id="5_2gonm"]
 
 [node name="Level" type="Node2D" unique_id=1577613177]
 script = ExtResource("1_x137j")
@@ -82,3 +83,10 @@ text = "Use your defensive dash to gain temporary invulnerability and dash forwa
 get hit while in it, you’ll get double damage."
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="MouseIcon" parent="." unique_id=863469734 instance=ExtResource("5_2gonm")]
+offset_left = 690.0
+offset_top = 122.000015
+offset_right = 690.0
+offset_bottom = 122.000015
+scale = Vector2(-0.7, 0.7)

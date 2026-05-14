@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bsjpbjs8vkm25" path="res://game/wave.gd" id="2_cwxd8"]
 [ext_resource type="PackedScene" uid="uid://818s6eno5gc8" path="res://game/enemies/slime/slime.tscn" id="3_ui2y0"]
 [ext_resource type="PackedScene" uid="uid://dkurut0abwxm0" path="res://game/map_elements/border.tscn" id="4_ec6vn"]
+[ext_resource type="PackedScene" uid="uid://dtbrgjilsxuhq" path="res://game/map_elements/mouse_icon.tscn" id="5_ui2y0"]
 
 [node name="1-2" type="Node2D" unique_id=613223395]
 script = ExtResource("1_uje7f")
@@ -37,3 +38,10 @@ metadata/_custom_type_script = "uid://bsjpbjs8vkm25"
 position = Vector2(1066, 332)
 
 [node name="Border" parent="." unique_id=443770384 instance=ExtResource("4_ec6vn")]
+
+[node name="MouseIcon" parent="." unique_id=863469734 instance=ExtResource("5_ui2y0")]
+offset_left = 600.0
+offset_top = 118.0
+offset_right = 600.0
+offset_bottom = 118.0
+scale = Vector2(0.7, 0.7)
