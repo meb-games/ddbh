@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dxcawt0wfpvmy"]
 
 [ext_resource type="Script" uid="uid://f4dktp07wg0e" path="res://game/enemies/arch_mage/arch_mage.gd" id="1_un3ot"]
-[ext_resource type="Texture2D" uid="uid://dv6yds1dxisys" path="res://assets/sprites/mage.png" id="2_pmi0t"]
+[ext_resource type="Texture2D" uid="uid://dvvq0iupuclvu" path="res://assets/sprites/arch_mage.png" id="2_5y2lk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_af58e"]
 size = Vector2(106, 201)
@@ -17,4 +17,5 @@ shape = SubResource("RectangleShape2D_af58e")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=1694812903]
 position = Vector2(0, -0.5)
-texture = ExtResource("2_pmi0t")
+scale = Vector2(0.10356233, 0.10356233)
+texture = ExtResource("2_5y2lk")

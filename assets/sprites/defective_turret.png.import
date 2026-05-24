@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8fv5kwrw6y8d"
-path="res://.godot/imported/offensive bullet.png-b5b8a369a3ef2968aa6537537326cd22.ctex"
+uid="uid://g5t8a0qrtau"
+path="res://.godot/imported/defective_turret.png-0e05f2ed20db8bccee069c944519bd10.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/offensive bullet.png"
-dest_files=["res://.godot/imported/offensive bullet.png-b5b8a369a3ef2968aa6537537326cd22.ctex"]
+source_file="res://assets/sprites/defective_turret.png"
+dest_files=["res://.godot/imported/defective_turret.png-0e05f2ed20db8bccee069c944519bd10.ctex"]
 
 [params]
 

@@ -5,36 +5,36 @@ extends Area2D
 const COLLISION_LAYER := 1 << 6
 
 func _init() -> void:
-	self.body_entered.connect(func(body):
-		body.collision_layer &= ~COLLISION_LAYER
+    self.body_entered.connect(func(body):
+        body.collision_layer &= ~COLLISION_LAYER
 
-		body.position = self.out.position + self.out_room().position
-		if body is Explorer:
-			var viewport = get_viewport()
-			viewport.get_camera_2d().position = self.out_room().position + (viewport.get_visible_rect().size / 2)
-			$/root/Game/UI.position = self.out_room().position
-			self.level().currentRoom = self.out_room()
-			self.in_room()._on_explorer_exit()
+        body.position = self.out.position + self.out_room().position
+        if body is Explorer:
+            var viewport = get_viewport()
+            viewport.get_camera_2d().position = self.out_room().position + (viewport.get_visible_rect().size / 2)
+            $/root/Game/UI.position = self.out_room().position
+            self.level().currentRoom = self.out_room()
+            self.in_room()._on_explorer_exit()
 
-		await get_tree().create_timer(.5).timeout
-		if body != null:
-			body.collision_layer |= COLLISION_LAYER
-	)
+        await get_tree().create_timer(.5).timeout
+        if body != null:
+            body.collision_layer |= COLLISION_LAYER
+    )
 
 func enable():
-	self.collision_mask = COLLISION_LAYER
+    self.collision_mask = COLLISION_LAYER
 func disable():
-	self.collision_mask = 0
+    self.collision_mask = 0
 
 func in_room() -> Room:
-	return self.get_parent()
+    return self.get_parent()
 func out_room() -> Room:
-	return self.out.get_parent()
+    return self.out.get_parent()
 func level() -> Level:
-	return self.in_room().get_parent()
+    return self.in_room().get_parent()
 
 func _ready() -> void:
-	if self.get_parent() is not Room:
-		printerr("Portals must be children of a room")
-	if self.out.get_parent() is not Room:
-		printerr("Portal outputs must be children of a room")
+    if self.get_parent() is not Room:
+        printerr("Portals must be children of a room")
+    if self.out.get_parent() is not Room:
+        printerr("Portal outputs must be children of a room")

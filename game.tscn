@@ -88,4 +88,5 @@ collision_mask = 2
 shape = ExtResource("5_ryrav")
 
 [node name="Sprite2D" type="Sprite2D" parent="Explorer" unique_id=412627103]
+scale = Vector2(0.109301314, 0.109301314)
 texture = ExtResource("5_vef74")

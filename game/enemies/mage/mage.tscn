@@ -20,6 +20,7 @@ shape = SubResource("RectangleShape2D_fkfi6")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=1244207930]
 position = Vector2(0, -0.5)
+scale = Vector2(0.0976403, 0.0976403)
 texture = ExtResource("1_e7yrj")
 
 [node name="MageFire" type="Timer" parent="." unique_id=2007725970]
