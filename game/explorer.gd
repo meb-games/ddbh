@@ -12,6 +12,9 @@ const MAX_HEALTH = 10.0
 # the explorer dashes to the mouse's location
 @export var constant_dash_distance := false
 
+const DEFENSIVE_BULLET := preload("res://game/attacks/defensive-bullet.tscn")
+const OFFENSIVE_BULLET := preload("res://game/attacks/offensive-bullet.tscn")
+
 ## Stores what the explorer is currently doing. The number is a damage multiplier for the explorer's
 ## state.
 var state := PlayerState.Normal
@@ -53,6 +56,7 @@ func _physics_process(delta: float) -> void:
         start_dash(PlayerState.OffensiveDash)
 
 # Makes the explorer dash in the direction of the mouse.
+<<<<<<< Updated upstream
 func start_dash(kind: PlayerState) -> void:
     var mouse_pos := get_global_mouse_position()
     self.state = kind
@@ -64,6 +68,24 @@ func start_dash(kind: PlayerState) -> void:
     dash_dir = self.position.direction_to(mouse_pos)
     if dash_dir == Vector2.ZERO:
         dash_dir = Vector2.RIGHT # fallback if mouse exactly on explorer
+=======
+func start_dash(state: PlayerState) -> void:
+	var bullet: Bullet
+	
+	match state:
+		PlayerState.OffensiveDash:
+			bullet = OFFENSIVE_BULLET.instantiate()
+		PlayerState.DefensiveDash:
+			bullet = DEFENSIVE_BULLET.instantiate()
+	
+	var mouse_pos := get_global_mouse_position()
+	self.state = state
+	bullet.position = self.position
+	bullet.direction = self.position.direction_to(mouse_pos)
+	if bullet.direction == Vector2.ZERO:
+		bullet.direction = Vector2.RIGHT # fallback if mouse exactly on explorer
+	$/root/Game/Attacks.add_child(bullet)
+>>>>>>> Stashed changes
 
 func update_collision():
     self.collision_mask = DEFAULT_COLLISION_MASK | (1 << self.state)

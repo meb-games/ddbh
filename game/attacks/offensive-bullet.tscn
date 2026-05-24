@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cs1q36f68xvvr"]
+
+[ext_resource type="Script" uid="uid://dwm6e24i05bx0" path="res://game/attacks/bullet.gd" id="1_2qbh2"]
+[ext_resource type="Texture2D" uid="uid://ck82273aviast" path="res://assets/sprites/offensive_bullet.png" id="2_2qbh2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mdmng"]
+radius = 7.0
+
+[node name="OffensiveBullet" type="StaticBody2D" unique_id=1884625719]
+script = ExtResource("1_2qbh2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=589513682]
+shape = SubResource("CircleShape2D_mdmng")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=433976424]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_2qbh2")
+region_enabled = true
+region_rect = Rect2(12286.435, 1288.2488, 466.87402, 474.65503)

@@ -11,7 +11,7 @@ extends CharacterBody2D
 ## How often (in ticks) the enemy acts.
 @export var ACTION_SPEED: int = 120
 ## A scene that gets spawned by `spawn_attack`.
-@export var ATTACK: PackedScene = preload("res://game/enemies/bullet.tscn")
+@export var ATTACK: PackedScene = preload("res://game/attacks/bullet.tscn")
 
 ## The enemy's health.
 @export var health: int = 1
