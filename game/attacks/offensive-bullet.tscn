@@ -7,7 +7,11 @@
 radius = 7.0
 
 [node name="OffensiveBullet" type="StaticBody2D" unique_id=1884625719]
+collision_layer = 0
+collision_mask = 32
 script = ExtResource("1_2qbh2")
+speed = 800
+kind = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=589513682]
 shape = SubResource("CircleShape2D_mdmng")
@@ -15,5 +19,3 @@ shape = SubResource("CircleShape2D_mdmng")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=433976424]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_2qbh2")
-region_enabled = true
-region_rect = Rect2(12286.435, 1288.2488, 466.87402, 474.65503)

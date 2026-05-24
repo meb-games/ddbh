@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dfclkrb7doq4n"]
 
-[ext_resource type="Texture2D" uid="uid://cypbs55pu7igu" path="res://assets/sprites/stone_golem.png" id="1_6ivje"]
+[ext_resource type="Texture2D" uid="uid://xrkl506v5d3k" path="res://assets/sprites/stone_golem.png" id="1_6ivje"]
 [ext_resource type="Script" uid="uid://l2kcikqphh6c" path="res://game/enemies/golem/stone_golem.gd" id="1_j3bhv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3mrp6"]
@@ -8,7 +8,7 @@ size = Vector2(100, 131)
 
 [node name="StoneGolem" type="CharacterBody2D" unique_id=2107590911]
 scale = Vector2(0.5, 0.5)
-collision_layer = 7
+collision_layer = 33
 collision_mask = 16
 script = ExtResource("1_j3bhv")
 

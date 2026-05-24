@@ -51,23 +51,25 @@ func _physics_process(delta: float) -> void:
 	self.move_and_collide(self.velocity)
 
 	if Input.is_action_just_pressed("dash_defensive"):
-		start_dash(PlayerState.DefensiveDash)
+		shoot(PlayerState.DefensiveDash)
 	elif Input.is_action_just_pressed("dash_offensive"):
-		start_dash(PlayerState.OffensiveDash)
+		shoot(PlayerState.OffensiveDash)
 
-func start_dash(state: PlayerState) -> void:
-	var bullet: Bullet
+func shoot(player_state: PlayerState) -> void:
+	self.state = player_state
 	
-	match state:
+	var mouse_pos := get_global_mouse_position()
+	var bullet: Bullet
+	match player_state:
 		PlayerState.OffensiveDash:
 			bullet = OFFENSIVE_BULLET.instantiate()
 		PlayerState.DefensiveDash:
 			bullet = DEFENSIVE_BULLET.instantiate()
+		_:
+			printerr("Invalid player state passed to shoot")
 	
-	var mouse_pos := get_global_mouse_position()
-	self.state = state
-	bullet.position = self.position
 	bullet.direction = self.position.direction_to(mouse_pos)
+	bullet.position = self.global_position + (bullet.direction * 80)
 	if bullet.direction == Vector2.ZERO:
 		bullet.direction = Vector2.RIGHT # fallback if mouse exactly on explorer
 	$/root/Game/Attacks.add_child(bullet)
@@ -76,6 +78,8 @@ func update_collision():
 	self.collision_mask = DEFAULT_COLLISION_MASK | (1 << self.state)
 	$Area2D.collision_mask = self.collision_mask
 
+
+
 # 
 # Signals
 # 
@@ -83,7 +87,10 @@ func update_collision():
 
 
 signal hit_by_bullet
-func _hit_by_bullet(_bullet: Bullet) -> void:
+func _hit_by_bullet(bullet: Bullet) -> void:
+	if bullet.kind == Bullet.BulletKind.Defensive || bullet.team == Bullet.BulletTeam.Explorer:
+		return
+	
 	match self.state:
 		PlayerState.Normal, PlayerState.OffensiveDash:
 			var dmg = 1 * self.state
@@ -98,7 +105,7 @@ func _hit_by_bullet(_bullet: Bullet) -> void:
 		PlayerState.DefensiveDash, PlayerState.Hit:
 			pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	match self.state:
 		PlayerState.Normal:
 			$/root/Game/UI/DashColour['theme_override_styles/panel'].border_color = Color.TRANSPARENT
@@ -117,5 +124,3 @@ func _process(delta: float) -> void:
 	for node in $Area2D.get_overlapping_bodies():
 		if node is Enemy:
 			node._colliding_with_explorer(self)
-		elif node is CollisionShape2D:
-			print("bruh")

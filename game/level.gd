@@ -9,7 +9,7 @@ func _ready() -> void:
 		self.currentRoom = self.get_child(0)
 	$/root/Game/Explorer.position = self.startPosition.position
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var wave := self.currentRoom.currentWave()
 	if wave != null:
 		for enemy in wave.get_children():

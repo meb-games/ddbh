@@ -50,6 +50,13 @@ func move_by(direction: Vector2, distance: float):
 # 
 
 
+signal hit_by_bullet
+func _hit_by_bullet(bullet: Bullet):
+	if bullet.kind == Bullet.BulletKind.Defensive || bullet.team == Bullet.BulletTeam.Enemy:
+		return
+	
+	self.health -= 1
+	bullet.queue_free()
 
 var _ticks_to_act: int = self.ACTION_SPEED
 func _tick():
@@ -59,7 +66,7 @@ func _tick():
 		self._ticks_to_act = self.ACTION_SPEED
 
 ## Called when the enemy should take an action.
-func _act(explorer: CharacterBody2D):
+func _act(_explorer: CharacterBody2D):
 	pass
 
 ## Called every frame the enemy is colliding with the explorer.
@@ -77,9 +84,6 @@ func _colliding_with_explorer(explorer: Explorer):
 func _hit_by_explorer(explorer: Explorer):
 	if explorer.state == Explorer.PlayerState.OffensiveDash:
 		self.health -= 1
-		
-		if self.health == 0:
-			self.queue_free()
 
 ## Called if the enemy needs to stop (e.g. because the player has left the enemy's room).
 func _stop():
@@ -99,7 +103,7 @@ func _notification(what: int) -> void:
 			self.get_parent().get_parent()._on_enemy_die()
 
 		NOTIFICATION_READY:
-			# Connect signals -> default callbacks
+			self.hit_by_bullet.connect(self._hit_by_bullet)
 			self.set_physics_process(true)
 			
 			# Sleep a random time between 0 and 1 seconds
@@ -108,6 +112,10 @@ func _notification(what: int) -> void:
 			await get_tree().create_timer(randf_range(0.0, 1.0)).timeout
 
 		NOTIFICATION_PHYSICS_PROCESS:
+			if self.health <= 0:
+				self.queue_free()
+				return
+			
 			var delta = Engine.time_scale / Engine.physics_ticks_per_second
 			self.velocity = self.movement_speed * self.movement_direction * delta
 			

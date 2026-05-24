@@ -26,18 +26,6 @@ scale = Vector2(0.99296117, 1)
 position = Vector2(552, 192)
 scale = Vector2(0.99296117, 1)
 
-[node name="Bush5" parent="." unique_id=933067766 instance=ExtResource("1_p17gd")]
-position = Vector2(552, 250)
-scale = Vector2(0.99296117, 1)
-
-[node name="Bush6" parent="." unique_id=478068622 instance=ExtResource("1_p17gd")]
-position = Vector2(552, 297)
-scale = Vector2(0.99296117, 1)
-
-[node name="Bush7" parent="." unique_id=1567368570 instance=ExtResource("1_p17gd")]
-position = Vector2(552, 355)
-scale = Vector2(0.99296117, 1)
-
 [node name="Bush8" parent="." unique_id=704169968 instance=ExtResource("1_p17gd")]
 position = Vector2(552, 413)
 scale = Vector2(0.99296117, 1)

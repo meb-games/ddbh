@@ -19,7 +19,7 @@ func _ready() -> void:
 		$PortalOut.disable()
 	self.currentWave().start()
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if self.enemy_died:
 		self.enemy_died = false
 		if self.currentWave().get_child_count() == 0:
