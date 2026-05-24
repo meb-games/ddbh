@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bfnpagbmka5qo" path="res://pause_menu.tscn" id="3_eow3j"]
 [ext_resource type="Script" uid="uid://qkys0o505fxc" path="res://game/explorer.gd" id="4_j5wjh"]
 [ext_resource type="Shape2D" uid="uid://by5n3dsnjhh38" path="res://assets/player_collision_shape.tres" id="5_ryrav"]
-[ext_resource type="Texture2D" uid="uid://23vxmoeodn8u" path="res://assets/sprites/explorer.png" id="5_vef74"]
+[ext_resource type="Texture2D" uid="uid://c807f6rscjxkn" path="res://assets/sprites/explorer.png" id="5_vef74"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jktm"]
 bg_color = Color(0.4648739, 0.4648739, 0.4648739, 1)
