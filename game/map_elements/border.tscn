@@ -14,32 +14,28 @@ point_count = 5
 visible = false
 position = Vector2(575, -8.000002)
 scale = Vector2(20.873314, 0.28000027)
-collision_layer = 65535
-collision_mask = 0
+collision_layer = 55
 color = Color(1, 0, 0, 0)
 
 [node name="Bottom" parent="." unique_id=28762292 instance=ExtResource("1_78ix1")]
 visible = false
 position = Vector2(575, 655)
 scale = Vector2(20.873314, 0.24000615)
-collision_layer = 65535
-collision_mask = 0
+collision_layer = 55
 color = Color(1, 0, 0, 0)
 
 [node name="Left" parent="." unique_id=1092467932 instance=ExtResource("1_78ix1")]
 visible = false
 position = Vector2(-8.000001, 323)
 scale = Vector2(0.27331388, 11.2800045)
-collision_layer = 65535
-collision_mask = 0
+collision_layer = 55
 color = Color(1, 0, 0, 0)
 
 [node name="Right" parent="." unique_id=1341743431 instance=ExtResource("1_78ix1")]
 visible = false
 position = Vector2(1160.0001, 323)
 scale = Vector2(0.27331388, 11.2800045)
-collision_layer = 65535
-collision_mask = 0
+collision_layer = 55
 color = Color(1, 0, 0, 0)
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1047357311]

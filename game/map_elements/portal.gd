@@ -2,26 +2,29 @@ extends Area2D
 
 @export var out: Node2D
 
-func _init() -> void:
-	self.body_entered.connect(func(explorer):
-		explorer.collision_layer = explorer.collision_layer & (~16)
+const COLLISION_LAYER := 1 << 6
 
-		var viewport = get_viewport()
-		viewport.get_camera_2d().position = self.out_room().position + (viewport.get_visible_rect().size / 2)
-		$/root/Game/UI.position = self.out_room().position
-		explorer.position = self.out.position + self.out_room().position
-		self.level().currentRoom = self.out_room()
-		self.in_room()._on_explorer_exit()
+func _init() -> void:
+	self.body_entered.connect(func(body):
+		body.collision_layer &= ~COLLISION_LAYER
+
+		body.position = self.out.position + self.out_room().position
+		if body is Explorer:
+			var viewport = get_viewport()
+			viewport.get_camera_2d().position = self.out_room().position + (viewport.get_visible_rect().size / 2)
+			$/root/Game/UI.position = self.out_room().position
+			self.level().currentRoom = self.out_room()
+			self.in_room()._on_explorer_exit()
 
 		await get_tree().create_timer(.5).timeout
-		if explorer != null:
-			explorer.collision_layer = explorer.collision_layer | 16
+		if body != null:
+			body.collision_layer |= COLLISION_LAYER
 	)
 
 func enable():
-	self.collision_mask |= 0
+	self.collision_mask = COLLISION_LAYER
 func disable():
-	self.collision_mask = self.collision_layer & 0
+	self.collision_mask = 0
 
 func in_room() -> Room:
 	return self.get_parent()

@@ -29,7 +29,7 @@ position = Vector2(1216, 0)
 
 [node name="PortalIn" parent="1-2" unique_id=1773849052 node_paths=PackedStringArray("out") instance=ExtResource("3_vw7v0")]
 position = Vector2(4, 323)
-scale = Vector2(0.39215073, 32.299404)
+scale = Vector2(1.8321556, 32.299404)
 out = NodePath("../../1-1/PortalOut")
 
 [node name="PortalOut" parent="1-2" unique_id=833729910 node_paths=PackedStringArray("out") instance=ExtResource("3_vw7v0")]

@@ -4,3 +4,5 @@ extends StaticBody2D
 
 func _ready() -> void:
 	$TextureRect.modulate = color
+
+signal hit_by_bullet

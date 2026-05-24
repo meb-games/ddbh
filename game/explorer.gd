@@ -27,7 +27,7 @@ var invi_frames = 5
 var dash_dir := Vector2.ZERO
 ## How much farther the explorer needs to dash
 var dash_distance := 0.0
-const DEFAULT_COLLISION_MASK := 1 << 5
+const DEFAULT_COLLISION_MASK := 0
 
 signal health_changed(float)
 
@@ -67,6 +67,7 @@ func start_dash(kind: PlayerState) -> void:
 
 func update_collision():
 	self.collision_mask = DEFAULT_COLLISION_MASK | (1 << self.state)
+	$Area2D.collision_mask = self.collision_mask
 
 # 
 # Signals

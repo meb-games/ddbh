@@ -5,8 +5,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bmsgq"]
 
 [node name="Portal" type="Area2D" unique_id=833729910]
-collision_layer = 32
-collision_mask = 0
+collision_layer = 0
+collision_mask = 64
 script = ExtResource("1_336ee")
 metadata/_custom_type_script = "uid://d0khaygba1gep"
 
