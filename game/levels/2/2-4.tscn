@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://busdqc521a4p8"]
+
+[ext_resource type="Script" uid="uid://d1u7tql8ei2jg" path="res://game/room.gd" id="1_4jnr6"]
+[ext_resource type="Script" uid="uid://bsjpbjs8vkm25" path="res://game/wave.gd" id="2_dub2q"]
+[ext_resource type="PackedScene" uid="uid://dxcawt0wfpvmy" path="res://game/enemies/arch_mage/arch_mage.tscn" id="3_dub2q"]
+[ext_resource type="PackedScene" uid="uid://csuwo6x450dl0" path="res://game/enemies/wizard/wizard.tscn" id="3_fb47l"]
+[ext_resource type="PackedScene" uid="uid://b4f5blbvwx4hx" path="res://game/enemies/mage/mage.tscn" id="5_fb47l"]
+
+[node name="21" type="Node2D" unique_id=1231538010]
+script = ExtResource("1_4jnr6")
+metadata/_custom_type_script = "uid://d1u7tql8ei2jg"
+
+[node name="Wave" type="Node2D" parent="." unique_id=669372465]
+script = ExtResource("2_dub2q")
+metadata/_custom_type_script = "uid://bsjpbjs8vkm25"
+
+[node name="ArchMage" parent="Wave" unique_id=1553919816 instance=ExtResource("3_dub2q")]
+position = Vector2(1105, 331)
+scale = Vector2(0.5736638, 0.5736638)
+
+[node name="Wave2" type="Node2D" parent="." unique_id=1061837103]
+script = ExtResource("2_dub2q")
+metadata/_custom_type_script = "uid://bsjpbjs8vkm25"
+
+[node name="Wizard" parent="Wave2" unique_id=1275428648 instance=ExtResource("3_fb47l")]
+position = Vector2(32, 320)
+
+[node name="Wizard2" parent="Wave2" unique_id=1681763229 instance=ExtResource("3_fb47l")]
+position = Vector2(1107, 334)
+
+[node name="Wave3" type="Node2D" parent="Wave2" unique_id=540228428]
+script = ExtResource("2_dub2q")
+metadata/_custom_type_script = "uid://bsjpbjs8vkm25"
+
+[node name="Mage" parent="Wave2/Wave3" unique_id=324492001 instance=ExtResource("5_fb47l")]
+position = Vector2(47, 73)
+
+[node name="Mage2" parent="Wave2/Wave3" unique_id=1375254196 instance=ExtResource("5_fb47l")]
+position = Vector2(47, 577)

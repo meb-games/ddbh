@@ -19,10 +19,10 @@ const OFFENSIVE_BULLET := preload("res://game/attacks/offensive-bullet.tscn")
 ## state.
 var state := PlayerState.Normal
 enum PlayerState {
-	DefensiveDash = 0,
-	Normal = 1,
-	OffensiveDash = 2,
-	Hit = 3
+    DefensiveDash = 0,
+    Normal = 1,
+    OffensiveDash = 2,
+    Hit = 3
 }
 const STATE_COLOURS = [Color.BLUE, Color.WHITE, Color.ORANGE, Color.RED]
 var invi_frames = 5
@@ -35,48 +35,48 @@ const DEFAULT_COLLISION_MASK := 0
 signal health_changed(float)
 
 func _init() -> void:
-	self.hit_by_bullet.connect(self._hit_by_bullet)
+    self.hit_by_bullet.connect(self._hit_by_bullet)
 
 func _physics_process(delta: float) -> void:
-	if self.state == PlayerState.Normal:
-		self.velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * speed * delta
-	else:
-		self.velocity = (dash_dir * dash_speed * delta).limit_length(dash_distance)
-		self.dash_distance -= velocity.length()
-		
-		if dash_distance <= 0.50:
-			self.state = PlayerState.Normal
-			self.update_collision()
-			self.velocity = Vector2.ZERO
-	self.move_and_collide(self.velocity)
+    if self.state == PlayerState.Normal:
+        self.velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * speed * delta
+    else:
+        self.velocity = (dash_dir * dash_speed * delta).limit_length(dash_distance)
+        self.dash_distance -= velocity.length()
+        
+        if dash_distance <= 0.50:
+            self.state = PlayerState.Normal
+            self.update_collision()
+            self.velocity = Vector2.ZERO
+    self.move_and_collide(self.velocity)
 
-	if Input.is_action_just_pressed("dash_defensive"):
-		shoot(PlayerState.DefensiveDash)
-	elif Input.is_action_just_pressed("dash_offensive"):
-		shoot(PlayerState.OffensiveDash)
+    if Input.is_action_just_pressed("dash_defensive"):
+        shoot(PlayerState.DefensiveDash)
+    elif Input.is_action_just_pressed("dash_offensive"):
+        shoot(PlayerState.OffensiveDash)
 
 func shoot(player_state: PlayerState) -> void:
-	self.state = player_state
-	
-	var mouse_pos := get_global_mouse_position()
-	var bullet: Bullet
-	match player_state:
-		PlayerState.OffensiveDash:
-			bullet = OFFENSIVE_BULLET.instantiate()
-		PlayerState.DefensiveDash:
-			bullet = DEFENSIVE_BULLET.instantiate()
-		_:
-			printerr("Invalid player state passed to shoot")
-	
-	bullet.direction = self.position.direction_to(mouse_pos)
-	bullet.position = self.global_position + (bullet.direction * 80)
-	if bullet.direction == Vector2.ZERO:
-		bullet.direction = Vector2.RIGHT # fallback if mouse exactly on explorer
-	$/root/Game/Attacks.add_child(bullet)
+    self.state = player_state
+    
+    var mouse_pos := get_global_mouse_position()
+    var bullet: Bullet
+    match player_state:
+        PlayerState.OffensiveDash:
+            bullet = OFFENSIVE_BULLET.instantiate()
+        PlayerState.DefensiveDash:
+            bullet = DEFENSIVE_BULLET.instantiate()
+        _:
+            printerr("Invalid player state passed to shoot")
+    
+    bullet.direction = self.position.direction_to(mouse_pos)
+    bullet.position = self.global_position + (bullet.direction * 80)
+    if bullet.direction == Vector2.ZERO:
+        bullet.direction = Vector2.RIGHT # fallback if mouse exactly on explorer
+    $/root/Game/Attacks.add_child(bullet)
 
 func update_collision():
-	self.collision_mask = DEFAULT_COLLISION_MASK | (1 << self.state)
-	$Area2D.collision_mask = self.collision_mask
+    self.collision_mask = DEFAULT_COLLISION_MASK | (1 << self.state)
+    $Area2D.collision_mask = self.collision_mask
 
 
 
@@ -88,39 +88,39 @@ func update_collision():
 
 signal hit_by_bullet
 func _hit_by_bullet(bullet: Bullet) -> void:
-	if bullet.kind == Bullet.BulletKind.Defensive || bullet.team == Bullet.BulletTeam.Explorer:
-		return
-	
-	match self.state:
-		PlayerState.Normal, PlayerState.OffensiveDash:
-			var dmg = 1 * self.state
-			self.state = PlayerState.Hit
-			self.invi_frames = 5
-			
-			self.health -= dmg
-			if self.health <= 0:
-				get_tree().change_scene_to_file.call_deferred("res://game_over.tscn")
-			
-			self.health_changed.emit(self.health)
-		PlayerState.DefensiveDash, PlayerState.Hit:
-			pass
+    if bullet.kind == Bullet.BulletKind.Defensive || bullet.team == Bullet.BulletTeam.Explorer:
+        return
+    
+    match self.state:
+        PlayerState.Normal, PlayerState.OffensiveDash:
+            var dmg = 1 * self.state
+            self.state = PlayerState.Hit
+            self.invi_frames = 5
+            
+            self.health -= dmg
+            if self.health <= 0:
+                get_tree().change_scene_to_file.call_deferred("res://game_over.tscn")
+            
+            self.health_changed.emit(self.health)
+        PlayerState.DefensiveDash, PlayerState.Hit:
+            pass
 
 func _process(_delta: float) -> void:
-	match self.state:
-		PlayerState.Normal:
-			$/root/Game/UI/DashColour['theme_override_styles/panel'].border_color = Color.TRANSPARENT
-			self.modulate = Color.WHITE
-		PlayerState.DefensiveDash:
-			$/root/Game/UI/DashColour['theme_override_styles/panel'].border_color = Color.BLUE
-		PlayerState.OffensiveDash:
-			$/root/Game/UI/DashColour['theme_override_styles/panel'].border_color = Color.RED
-		PlayerState.Hit:
-			self.invi_frames -= 1
-			self.modulate = Color.RED
-			if self.invi_frames == 0:
-				self.state = PlayerState.Normal
-				self.invi_frames = 5
-	
-	for node in $Area2D.get_overlapping_bodies():
-		if node is Enemy:
-			node._colliding_with_explorer(self)
+    match self.state:
+        PlayerState.Normal:
+            $/root/Game/UI/DashColour['theme_override_styles/panel'].border_color = Color.TRANSPARENT
+            self.modulate = Color.WHITE
+        PlayerState.DefensiveDash:
+            $/root/Game/UI/DashColour['theme_override_styles/panel'].border_color = Color.BLUE
+        PlayerState.OffensiveDash:
+            $/root/Game/UI/DashColour['theme_override_styles/panel'].border_color = Color.RED
+        PlayerState.Hit:
+            self.invi_frames -= 1
+            self.modulate = Color.RED
+            if self.invi_frames == 0:
+                self.state = PlayerState.Normal
+                self.invi_frames = 5
+    
+    for node in $Area2D.get_overlapping_bodies():
+        if node is Enemy:
+            node._colliding_with_explorer(self)
