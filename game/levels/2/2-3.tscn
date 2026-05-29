@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://csuwo6x450dl0" path="res://game/enemies/wizard/wizard.tscn" id="3_pehx2"]
 [ext_resource type="PackedScene" uid="uid://dkurut0abwxm0" path="res://game/map_elements/border.tscn" id="4_4t8u8"]
 
-[node name="21" type="Node2D" unique_id=1231538010]
+[node name="2-3" type="Node2D" unique_id=1231538010]
 script = ExtResource("1_pehx2")
 metadata/_custom_type_script = "uid://d1u7tql8ei2jg"
 

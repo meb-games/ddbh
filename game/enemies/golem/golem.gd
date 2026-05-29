@@ -6,12 +6,12 @@ const CHARGED_SLAM_RANGE: float = 200.0
 @abstract func check_state(distance: float)
 
 enum GolemState {
-    FOLLOW,
-    START_SLAM,
-    DO_SLAM,
-    START_CHARGED_SLAM,
-    DO_CHARGED_SLAM,
-    COOLDOWN
+	FOLLOW,
+	START_SLAM,
+	DO_SLAM,
+	START_CHARGED_SLAM,
+	DO_CHARGED_SLAM,
+	COOLDOWN
 }
 var state := GolemState.FOLLOW
 var can_charged_slam := true
@@ -22,7 +22,7 @@ enum GolemAttack {
 }
 
 func _init():
-    self.ACTION_SPEED = 1
+	self.ACTION_SPEED = 1
 
 func _act(explorer: CharacterBody2D):
     match self.state:
@@ -48,10 +48,10 @@ func _act(explorer: CharacterBody2D):
             )
 
 func change_state(delay: float, new_state: GolemState):
-    self.movement_direction = Vector2.ZERO
-    self.state = GolemState.COOLDOWN
-    await get_tree().create_timer(delay).timeout
-    self.state = new_state
+	self.movement_direction = Vector2.ZERO
+	self.state = GolemState.COOLDOWN
+	await get_tree().create_timer(delay).timeout
+	self.state = new_state
 
 func _stop():
-    self.movement_direction = Vector2.ZERO
+	self.movement_direction = Vector2.ZERO

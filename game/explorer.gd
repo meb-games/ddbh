@@ -26,7 +26,7 @@ var dash_distance := 0.0
 const DEFAULT_COLLISION_MASK := 0
 
 func _init() -> void:
-    self.hit_by_bullet.connect(self._hit_by_bullet)
+	self.hit_by_bullet.connect(self._hit_by_bullet)
 
 func _physics_process(delta: float) -> void:
     self.velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * speed * delta
@@ -48,8 +48,8 @@ func shoot(bullet_scene: PackedScene) -> void:
     $/root/Game/Attacks.add_child(bullet)
 
 func update_collision():
-    self.collision_mask = DEFAULT_COLLISION_MASK | (1 << self.state)
-    $Area2D.collision_mask = self.collision_mask
+	self.collision_mask = DEFAULT_COLLISION_MASK | (1 << self.state)
+	$Area2D.collision_mask = self.collision_mask
 
 
 
