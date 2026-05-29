@@ -78,12 +78,8 @@ func _colliding_with_explorer(explorer: Explorer):
 	self.last_player_collision_tick.set(explorer.state, current_tick)
 
 ## Called when the enemy collides with the explorer.
-##
-## The default implementation just makes the enemy lose a health if the player was offensively
-## dashing.
 func _hit_by_explorer(explorer: Explorer):
-	if explorer.state == Explorer.PlayerState.OffensiveDash:
-		self.health -= 1
+	pass
 
 ## Called if the enemy needs to stop (e.g. because the player has left the enemy's room).
 func _stop():
@@ -98,6 +94,9 @@ func _stop():
 
 
 func _notification(what: int) -> void:
+	if !self.is_inside_tree():
+		return
+		
 	match what:
 		NOTIFICATION_PREDELETE:
 			self.get_parent().get_parent()._on_enemy_die()

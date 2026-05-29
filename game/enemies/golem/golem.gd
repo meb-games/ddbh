@@ -16,6 +16,11 @@ enum GolemState {
 var state := GolemState.FOLLOW
 var can_charged_slam := true
 
+enum GolemAttack {
+	NORMAL,
+	CHARGED
+}
+
 func _init():
 	self.ACTION_SPEED = 1
 
@@ -29,8 +34,7 @@ func _act(explorer: CharacterBody2D):
 			print("telegraphing slam")
 			self.change_state(.5, GolemState.DO_SLAM)
 		GolemState.DO_SLAM:
-			print("todo slam")
-			$/root/Game/Explorer.emit_signal("hit_by_bullet", null)
+			$/root/Game/Explorer._hit_by_attack(self, GolemAttack.NORMAL)
 			self.change_state(1.0, GolemState.FOLLOW)
 			
 		GolemState.START_CHARGED_SLAM:
