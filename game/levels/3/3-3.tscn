@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dkurut0abwxm0" path="res://game/map_elements/border.tscn" id="5_5wwvf"]
 [ext_resource type="PackedScene" uid="uid://csuwo6x450dl0" path="res://game/enemies/wizard/wizard.tscn" id="6_ixb1h"]
 
-[node name="21" type="Node2D" unique_id=1231538010]
+[node name="3-3" type="Node2D" unique_id=1231538010]
 script = ExtResource("1_174k6")
 metadata/_custom_type_script = "uid://d1u7tql8ei2jg"
 
@@ -60,7 +60,7 @@ ATTACK = null
 health = null
 MOVEMENT_TOLERANCE = null
 
-[node name="Border" parent="." unique_id=443770384 instance=ExtResource("5_5wwvf")]
-
-[node name="Wizard" parent="." unique_id=1275428648 instance=ExtResource("6_ixb1h")]
+[node name="Wizard" parent="Wave" unique_id=1275428648 instance=ExtResource("6_ixb1h")]
 position = Vector2(53, 345)
+
+[node name="Border" parent="." unique_id=443770384 instance=ExtResource("5_5wwvf")]

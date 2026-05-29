@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b4f5blbvwx4hx" path="res://game/enemies/mage/mage.tscn" id="5_qf1j6"]
 [ext_resource type="PackedScene" uid="uid://dkurut0abwxm0" path="res://game/map_elements/border.tscn" id="6_iygbi"]
 
-[node name="21" type="Node2D" unique_id=1231538010]
+[node name="3-4" type="Node2D" unique_id=1231538010]
 script = ExtResource("1_8t1wj")
 metadata/_custom_type_script = "uid://d1u7tql8ei2jg"
 

@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://k7wdqiif6gea"]
+
+[ext_resource type="Script" uid="uid://d4f27i0cocfn8" path="res://game/level.gd" id="1_uuiw6"]
+[ext_resource type="PackedScene" uid="uid://05gar31kl5t2" path="res://game/levels/3/3-1.tscn" id="2_uuiw6"]
+[ext_resource type="PackedScene" uid="uid://cc2gjgystsuu0" path="res://game/map_elements/portal.tscn" id="3_tgc7x"]
+[ext_resource type="PackedScene" uid="uid://5ewjntlll8ty" path="res://game/levels/3/3-2.tscn" id="4_rhdap"]
+[ext_resource type="PackedScene" uid="uid://c5w18xxyt7p2m" path="res://game/levels/3/3-3.tscn" id="5_tgc7x"]
+[ext_resource type="PackedScene" uid="uid://ulyus328ihq" path="res://game/levels/3/3-4.tscn" id="6_6g5lp"]
+
+[node name="Level" type="Node2D" unique_id=554394681]
+script = ExtResource("1_uuiw6")
+metadata/_custom_type_script = "uid://d4f27i0cocfn8"
+
+[node name="3-1" parent="." unique_id=1231538010 instance=ExtResource("2_uuiw6")]
+
+[node name="Start Position" type="Node2D" parent="3-1" unique_id=639033116]
+position = Vector2(130, 325)
+
+[node name="PortalOut" parent="3-1" unique_id=833729910 node_paths=PackedStringArray("out") instance=ExtResource("3_tgc7x")]
+position = Vector2(1150, 325)
+scale = Vector2(1, 32.301403)
+out = NodePath("../../3-2/PortalIn")
+
+[node name="3-2" parent="." unique_id=121917674 instance=ExtResource("4_rhdap")]
+position = Vector2(1200, 0)
+
+[node name="PortalIn" parent="3-2" unique_id=332300400 node_paths=PackedStringArray("out") instance=ExtResource("3_tgc7x")]
+position = Vector2(0, 325)
+scale = Vector2(1, 32.299404)
+out = NodePath("../../3-1/PortalOut")
+
+[node name="PortalOut" parent="3-2" unique_id=775767875 node_paths=PackedStringArray("out") instance=ExtResource("3_tgc7x")]
+position = Vector2(1150, 325)
+scale = Vector2(1, 32)
+out = NodePath("../../3-3/PortalIn")
+
+[node name="3-3" parent="." unique_id=2011070612 instance=ExtResource("5_tgc7x")]
+position = Vector2(2400, 0)
+
+[node name="PortalIn" parent="3-3" unique_id=169652844 node_paths=PackedStringArray("out") instance=ExtResource("3_tgc7x")]
+position = Vector2(0, 325)
+scale = Vector2(1, 32)
+out = NodePath("../../3-2/PortalOut")
+
+[node name="PortalOut" parent="3-3" unique_id=788911265 node_paths=PackedStringArray("out") instance=ExtResource("3_tgc7x")]
+position = Vector2(1150, 325)
+scale = Vector2(1, 32)
+out = NodePath("../../3-4/PortalIn")
+
+[node name="3-4" parent="." unique_id=908562356 instance=ExtResource("6_6g5lp")]
+position = Vector2(3600, 0)
+
+[node name="PortalIn" parent="3-4" unique_id=282155663 instance=ExtResource("3_tgc7x")]
+position = Vector2(0, 325)
+scale = Vector2(1, 32)

@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d2hvlcu1jknxy" path="res://game/enemies/golem/mud_golem.tscn" id="5_5ijf0"]
 [ext_resource type="PackedScene" uid="uid://dkurut0abwxm0" path="res://game/map_elements/border.tscn" id="5_y8c5s"]
 
-[node name="21" type="Node2D" unique_id=1231538010]
+[node name="3-2" type="Node2D" unique_id=1231538010]
 script = ExtResource("1_6eesx")
 metadata/_custom_type_script = "uid://d1u7tql8ei2jg"
 

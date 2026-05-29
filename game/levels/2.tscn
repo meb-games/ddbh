@@ -18,7 +18,7 @@ position = Vector2(130, 325)
 
 [node name="PortalOut" parent="2-1" unique_id=833729910 node_paths=PackedStringArray("out") instance=ExtResource("4_biymt")]
 position = Vector2(1150, 325)
-scale = Vector2(1, 32.301403)
+scale = Vector2(1, 32.5)
 out = NodePath("../../2-2/PortalIn")
 
 [node name="2-2" parent="." unique_id=473641180 instance=ExtResource("3_jkgp8")]
@@ -26,12 +26,12 @@ position = Vector2(1200, 0)
 
 [node name="PortalIn" parent="2-2" unique_id=332300400 node_paths=PackedStringArray("out") instance=ExtResource("4_biymt")]
 position = Vector2(0, 325)
-scale = Vector2(1, 32.299404)
+scale = Vector2(1, 32.5)
 out = NodePath("../../2-1/PortalOut")
 
 [node name="PortalOut" parent="2-2" unique_id=775767875 node_paths=PackedStringArray("out") instance=ExtResource("4_biymt")]
 position = Vector2(1150, 325)
-scale = Vector2(1, 32)
+scale = Vector2(1, 32.5)
 out = NodePath("../../2-3/PortalIn")
 
 [node name="2-3" parent="." unique_id=564756319 instance=ExtResource("4_2hqon")]
@@ -39,12 +39,12 @@ position = Vector2(2400, 0)
 
 [node name="PortalIn" parent="2-3" unique_id=169652844 node_paths=PackedStringArray("out") instance=ExtResource("4_biymt")]
 position = Vector2(0, 325)
-scale = Vector2(1, 32)
+scale = Vector2(1, 32.5)
 out = NodePath("../../2-2/PortalOut")
 
 [node name="PortalOut" parent="2-3" unique_id=788911265 node_paths=PackedStringArray("out") instance=ExtResource("4_biymt")]
 position = Vector2(1150, 325)
-scale = Vector2(1, 32)
+scale = Vector2(1, 32.5)
 out = NodePath("../../2-4/PortalIn")
 
 [node name="2-4" parent="." unique_id=1101163514 instance=ExtResource("5_m65mr")]
@@ -52,4 +52,4 @@ position = Vector2(3600, 0)
 
 [node name="PortalIn" parent="2-4" unique_id=282155663 instance=ExtResource("4_biymt")]
 position = Vector2(0, 325)
-scale = Vector2(1, 32)
+scale = Vector2(1, 32.5)
