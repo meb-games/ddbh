@@ -11,6 +11,8 @@
 script = ExtResource("1_4jnr6")
 metadata/_custom_type_script = "uid://d1u7tql8ei2jg"
 
+[node name="Border" parent="." unique_id=443770384 instance=ExtResource("6_b3cxf")]
+
 [node name="Wave" type="Node2D" parent="." unique_id=669372465]
 script = ExtResource("2_dub2q")
 metadata/_custom_type_script = "uid://bsjpbjs8vkm25"
@@ -29,14 +31,12 @@ position = Vector2(32, 320)
 [node name="Wizard2" parent="Wave2" unique_id=1681763229 instance=ExtResource("3_fb47l")]
 position = Vector2(1107, 334)
 
-[node name="Wave3" type="Node2D" parent="Wave2" unique_id=540228428]
+[node name="Wave3" type="Node2D" parent="." unique_id=540228428]
 script = ExtResource("2_dub2q")
 metadata/_custom_type_script = "uid://bsjpbjs8vkm25"
 
-[node name="Mage" parent="Wave2/Wave3" unique_id=324492001 instance=ExtResource("5_fb47l")]
+[node name="Mage" parent="Wave3" unique_id=324492001 instance=ExtResource("5_fb47l")]
 position = Vector2(47, 73)
 
-[node name="Mage2" parent="Wave2/Wave3" unique_id=1375254196 instance=ExtResource("5_fb47l")]
+[node name="Mage2" parent="Wave3" unique_id=1375254196 instance=ExtResource("5_fb47l")]
 position = Vector2(47, 577)
-
-[node name="Border" parent="." unique_id=443770384 instance=ExtResource("6_b3cxf")]
