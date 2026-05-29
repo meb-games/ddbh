@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d1u7tql8ei2jg" path="res://game/room.gd" id="1_ki4c0"]
 [ext_resource type="Script" uid="uid://bsjpbjs8vkm25" path="res://game/wave.gd" id="2_lpqg7"]
 [ext_resource type="PackedScene" uid="uid://b4f5blbvwx4hx" path="res://game/enemies/mage/mage.tscn" id="3_hd4h7"]
+[ext_resource type="PackedScene" uid="uid://dkurut0abwxm0" path="res://game/map_elements/border.tscn" id="4_hd4h7"]
 
 [node name="21" type="Node2D" unique_id=1231538010]
 script = ExtResource("1_ki4c0")
@@ -17,3 +18,5 @@ position = Vector2(1104, 68)
 
 [node name="Mage2" parent="Wave" unique_id=1368142856 instance=ExtResource("3_hd4h7")]
 position = Vector2(1104, 579)
+
+[node name="Border" parent="." unique_id=443770384 instance=ExtResource("4_hd4h7")]

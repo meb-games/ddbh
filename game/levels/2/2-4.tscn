@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dxcawt0wfpvmy" path="res://game/enemies/arch_mage/arch_mage.tscn" id="3_dub2q"]
 [ext_resource type="PackedScene" uid="uid://csuwo6x450dl0" path="res://game/enemies/wizard/wizard.tscn" id="3_fb47l"]
 [ext_resource type="PackedScene" uid="uid://b4f5blbvwx4hx" path="res://game/enemies/mage/mage.tscn" id="5_fb47l"]
+[ext_resource type="PackedScene" uid="uid://dkurut0abwxm0" path="res://game/map_elements/border.tscn" id="6_b3cxf"]
 
 [node name="21" type="Node2D" unique_id=1231538010]
 script = ExtResource("1_4jnr6")
@@ -37,3 +38,5 @@ position = Vector2(47, 73)
 
 [node name="Mage2" parent="Wave2/Wave3" unique_id=1375254196 instance=ExtResource("5_fb47l")]
 position = Vector2(47, 577)
+
+[node name="Border" parent="." unique_id=443770384 instance=ExtResource("6_b3cxf")]

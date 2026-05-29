@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://05gar31kl5t2"]
+
+[ext_resource type="Script" uid="uid://d1u7tql8ei2jg" path="res://game/room.gd" id="1_vcwgw"]
+[ext_resource type="Script" uid="uid://bsjpbjs8vkm25" path="res://game/wave.gd" id="2_p201a"]
+[ext_resource type="PackedScene" uid="uid://b4f5blbvwx4hx" path="res://game/enemies/mage/mage.tscn" id="3_yeuku"]
+[ext_resource type="PackedScene" uid="uid://818s6eno5gc8" path="res://game/enemies/slime/slime.tscn" id="4_j887c"]
+[ext_resource type="PackedScene" uid="uid://dkurut0abwxm0" path="res://game/map_elements/border.tscn" id="5_qf7j6"]
+
+[node name="21" type="Node2D" unique_id=1231538010]
+script = ExtResource("1_vcwgw")
+metadata/_custom_type_script = "uid://d1u7tql8ei2jg"
+
+[node name="Wave" type="Node2D" parent="." unique_id=669372465]
+script = ExtResource("2_p201a")
+metadata/_custom_type_script = "uid://bsjpbjs8vkm25"
+
+[node name="Mage" parent="Wave" unique_id=324492001 instance=ExtResource("3_yeuku")]
+position = Vector2(1104, 337)
+
+[node name="Slime" parent="Wave" unique_id=1223112976 instance=ExtResource("4_j887c")]
+position = Vector2(642, 42)
+ACTION_SPEED = null
+ATTACK = null
+health = null
+MOVEMENT_TOLERANCE = null
+
+[node name="Slime2" parent="Wave" unique_id=1254278863 instance=ExtResource("4_j887c")]
+position = Vector2(461, 42)
+ACTION_SPEED = null
+ATTACK = null
+health = null
+MOVEMENT_TOLERANCE = null
+
+[node name="Slime3" parent="Wave" unique_id=1808840438 instance=ExtResource("4_j887c")]
+position = Vector2(642, 316)
+ACTION_SPEED = null
+ATTACK = null
+health = null
+MOVEMENT_TOLERANCE = null
+
+[node name="Slime4" parent="Wave" unique_id=1772254761 instance=ExtResource("4_j887c")]
+position = Vector2(461, 316)
+ACTION_SPEED = null
+ATTACK = null
+health = null
+MOVEMENT_TOLERANCE = null
+
+[node name="Slime5" parent="Wave" unique_id=2022883870 instance=ExtResource("4_j887c")]
+position = Vector2(642, 601)
+ACTION_SPEED = null
+ATTACK = null
+health = null
+MOVEMENT_TOLERANCE = null
+
+[node name="Slime6" parent="Wave" unique_id=776965568 instance=ExtResource("4_j887c")]
+position = Vector2(461, 601)
+ACTION_SPEED = null
+ATTACK = null
+health = null
+MOVEMENT_TOLERANCE = null
+
+[node name="Border" parent="." unique_id=443770384 instance=ExtResource("5_qf7j6")]
