@@ -79,7 +79,7 @@ func _colliding_with_explorer(explorer: Explorer):
 
 ## Called when the enemy collides with the explorer.
 func _hit_by_explorer(explorer: Explorer):
-    pass
+	pass
 
 ## Called if the enemy needs to stop (e.g. because the player has left the enemy's room).
 func _stop():
@@ -94,12 +94,12 @@ func _stop():
 
 
 func _notification(what: int) -> void:
-    if !self.is_inside_tree():
-        return
-        
-    match what:
-        NOTIFICATION_PREDELETE:
-            self.get_parent().get_parent()._on_enemy_die()
+	if !self.is_inside_tree():
+		return
+
+	match what:
+		NOTIFICATION_PREDELETE:
+			self.get_parent().get_parent()._on_enemy_die()
 
 		NOTIFICATION_READY:
 			self.hit_by_bullet.connect(self._hit_by_bullet)

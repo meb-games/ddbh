@@ -7,9 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cc2gjgystsuu0" path="res://game/map_elements/portal.tscn" id="4_biymt"]
 [ext_resource type="PackedScene" uid="uid://busdqc521a4p8" path="res://game/levels/2/2-4.tscn" id="5_m65mr"]
 
-[node name="Level" type="Node2D" unique_id=554394681 node_paths=PackedStringArray("startPosition")]
+[node name="Level" type="Node2D" unique_id=554394681]
 script = ExtResource("1_2hqon")
-startPosition = NodePath("")
 metadata/_custom_type_script = "uid://d4f27i0cocfn8"
 
 [node name="2-1" parent="." unique_id=1231538010 instance=ExtResource("2_l71uu")]
@@ -51,7 +50,6 @@ out = NodePath("../../2-4/PortalIn")
 [node name="2-4" parent="." unique_id=1101163514 instance=ExtResource("5_m65mr")]
 position = Vector2(3600, 0)
 
-[node name="PortalIn" parent="2-4" unique_id=282155663 node_paths=PackedStringArray("out") instance=ExtResource("4_biymt")]
+[node name="PortalIn" parent="2-4" unique_id=282155663 instance=ExtResource("4_biymt")]
 position = Vector2(0, 325)
 scale = Vector2(1, 32)
-out = NodePath("")
