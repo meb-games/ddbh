@@ -20,7 +20,7 @@ script = ExtResource("3_q363p")
 position = Vector2(130, 325)
 
 [node name="PortalOut" parent="1-1" unique_id=618156259 node_paths=PackedStringArray("out") instance=ExtResource("3_vw7v0")]
-position = Vector2(0, 325)
+position = Vector2(1150, 325)
 scale = Vector2(1, 32.5)
 out = NodePath("../../1-2/PortalIn")
 

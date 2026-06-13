@@ -9,6 +9,7 @@
 
 [node name="1-4" type="Node2D" unique_id=637479780]
 script = ExtResource("1_r47lb")
+final_room = true
 metadata/_custom_type_script = "uid://d1u7tql8ei2jg"
 
 [node name="Wall" parent="." unique_id=1121962823 instance=ExtResource("3_tkc65")]

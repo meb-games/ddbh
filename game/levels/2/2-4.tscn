@@ -9,6 +9,7 @@
 
 [node name="2-4" type="Node2D" unique_id=1231538010]
 script = ExtResource("1_4jnr6")
+final_room = true
 metadata/_custom_type_script = "uid://d1u7tql8ei2jg"
 
 [node name="Border" parent="." unique_id=443770384 instance=ExtResource("6_b3cxf")]

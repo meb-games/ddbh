@@ -7,7 +7,7 @@ size = Vector2(58, 58)
 
 [node name="Bush" type="StaticBody2D" unique_id=1121962823]
 light_mask = 2
-collision_layer = 6
+collision_layer = 55
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1897683681]

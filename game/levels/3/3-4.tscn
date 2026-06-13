@@ -10,6 +10,7 @@
 
 [node name="3-4" type="Node2D" unique_id=1231538010]
 script = ExtResource("1_8t1wj")
+final_room = true
 metadata/_custom_type_script = "uid://d1u7tql8ei2jg"
 
 [node name="Wave" type="Node2D" parent="." unique_id=669372465]

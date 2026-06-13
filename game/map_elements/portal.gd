@@ -10,10 +10,7 @@ func _init() -> void:
 
 		body.position = self.out.position + self.out_room().position
 		if body is Explorer:
-			var viewport = get_viewport()
-			viewport.get_camera_2d().position = self.out_room().position + (viewport.get_visible_rect().size / 2)
-			$/root/Game/UI.position = self.out_room().position
-			self.level().currentRoom = self.out_room()
+			self.out_room().activate()
 			self.in_room()._on_explorer_exit()
 
 		await get_tree().create_timer(.5).timeout

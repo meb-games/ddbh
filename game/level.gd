@@ -5,9 +5,8 @@ var currentRoom: Room
 @export var startPosition: Node2D
 
 func _ready() -> void:
-	if self.currentRoom == null:
-		self.currentRoom = self.get_child(0)
 	$/root/Game/Explorer.position = self.startPosition.position
+	self.get_child(0).activate()
 
 func _physics_process(_delta: float) -> void:
 	var wave := self.currentRoom.currentWave()

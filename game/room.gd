@@ -1,6 +1,8 @@
 extends Node2D
 class_name Room
 
+@export var final_room := false
+
 var waves: Array[Wave] = []
 var current_wave: int = 0
 var enemy_died := false
@@ -9,6 +11,15 @@ func currentWave() -> Wave:
 	if self.current_wave == len(self.waves):
 		return null
 	return self.waves[self.current_wave]
+
+func level() -> Level:
+	return self.get_parent()
+	
+func activate():
+	var viewport = get_viewport()
+	viewport.get_camera_2d().position = self.position + (viewport.get_visible_rect().size / 2)
+	$/root/Game/UI.position = self.position
+	self.level().currentRoom = self
 
 
 
@@ -41,3 +52,5 @@ func _on_enemy_die() -> void:
 func _on_all_waves_defeated():
 	if self.has_node("PortalOut"):
 		$PortalOut.enable()
+	elif self.final_room:
+		$/root/Game/UI/Victory.visible = true

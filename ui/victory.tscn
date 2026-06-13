@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bdt81fp8yajvt"]
+
+[ext_resource type="Script" uid="uid://cop6x1bw6ik3f" path="res://ui/victory.gd" id="1_h0orr"]
+
+[node name="Victory" type="Control" unique_id=1390008435]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_h0orr")
+
+[node name="Label" type="Label" parent="." unique_id=1354836612]
+layout_mode = 0
+offset_left = 587.0
+offset_top = 255.0
+offset_right = 708.0
+offset_bottom = 302.0
+text = "GG"
+
+[node name="Button" type="Button" parent="." unique_id=1698918796]
+layout_mode = 0
+offset_left = 553.0
+offset_top = 286.0
+offset_right = 643.0
+offset_bottom = 317.0
+text = "Next Level"
+
+[connection signal="pressed" from="Button" to="." method="next_level"]
