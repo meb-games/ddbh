@@ -7,7 +7,7 @@
 size = Vector2(106, 201)
 
 [node name="ArchMage" type="CharacterBody2D" unique_id=1553919816]
-collision_layer = 7
+collision_layer = 39
 collision_mask = 16
 script = ExtResource("1_un3ot")
 health = 3
@@ -16,7 +16,7 @@ health = 3
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_af58e")
 
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=1694812903]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1694812903]
 position = Vector2(0, -0.5)
 scale = Vector2(0.10356233, 0.10356233)
 texture = ExtResource("2_5y2lk")
