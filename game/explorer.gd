@@ -7,10 +7,10 @@ const DEFENSIVE_BULLET := preload("res://game/attacks/defensive-bullet.tscn")
 const OFFENSIVE_BULLET := preload("res://game/attacks/offensive-bullet.tscn")
 
 enum PlayerState {
-	Normal = 0,
-	Hit = 1
+	Hit = 0,
+	Normal = 1
 }
-var state: PlayerState
+var state: PlayerState = PlayerState.Normal
 
 enum BulletKind {
 	Defensive = 0,
@@ -69,9 +69,11 @@ func _hit_by_bullet(bullet: Bullet) -> void:
 			var dmg = 1 * self.state
 			self.state = PlayerState.Hit
 
-			$Health.change.emit(dmg)
+			$Health.change.emit(-dmg)
 		PlayerState.Hit:
 			pass
+	
+	bullet.queue_free()
 
 # non-bullet enemy attacks
 func _hit_by_attack(enemy: Enemy, data):
@@ -85,7 +87,7 @@ func _hit_by_attack(enemy: Enemy, data):
 
 func _process(_delta: float) -> void:
 	if $Health.value() <= 0:
-		get_tree().change_scene_to_file.call_deferred("res://game_over.tscn")
+		get_tree().change_scene_to_file.call_deferred("res://ui/game_over.tscn")
 	
 	match self.state:
 		PlayerState.Normal:
