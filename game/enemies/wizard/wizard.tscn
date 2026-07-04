@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://csuwo6x450dl0"]
 
 [ext_resource type="Script" uid="uid://cw0w1xg4u3q2u" path="res://game/enemies/wizard/wizard.gd" id="1_1j08m"]
-[ext_resource type="Texture2D" uid="uid://cs0ltrywx6gvj" path="res://assets/sprites/wizard.png" id="1_dlfig"]
+[ext_resource type="Texture2D" uid="uid://b577i0ckoa0vc" path="res://assets/sprites/wizard.png" id="1_dlfig"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ls81b"]
 size = Vector2(106, 201)
@@ -10,6 +10,7 @@ size = Vector2(106, 201)
 collision_layer = 7
 collision_mask = 16
 script = ExtResource("1_1j08m")
+health = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=20891050]
 position = Vector2(0, 0.5)

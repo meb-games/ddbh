@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dxcawt0wfpvmy"]
 
 [ext_resource type="Script" uid="uid://f4dktp07wg0e" path="res://game/enemies/arch_mage/arch_mage.gd" id="1_un3ot"]
-[ext_resource type="Texture2D" uid="uid://dvvq0iupuclvu" path="res://assets/sprites/arch_mage.png" id="2_5y2lk"]
+[ext_resource type="Texture2D" uid="uid://d3ux30s62buk3" path="res://assets/sprites/arch_mage.png" id="2_5y2lk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_af58e"]
 size = Vector2(106, 201)
@@ -10,6 +10,7 @@ size = Vector2(106, 201)
 collision_layer = 7
 collision_mask = 16
 script = ExtResource("1_un3ot")
+health = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1781284661]
 position = Vector2(0, 0.5)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b4f5blbvwx4hx"]
 
-[ext_resource type="Texture2D" uid="uid://dv6yds1dxisys" path="res://assets/sprites/mage.png" id="1_e7yrj"]
+[ext_resource type="Texture2D" uid="uid://dchjx2ybyww25" path="res://assets/sprites/mage.png" id="1_e7yrj"]
 [ext_resource type="Script" uid="uid://bjquf3320smu5" path="res://game/enemies/mage/mage.gd" id="1_fkfi6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkfi6"]
@@ -10,6 +10,7 @@ size = Vector2(106, 201)
 collision_layer = 7
 collision_mask = 16
 script = ExtResource("1_fkfi6")
+health = 4
 metadata/_custom_type_script = "uid://htph4rr622cf"
 metadata/_edit_group_ = true
 
