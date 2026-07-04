@@ -33,7 +33,6 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 
 [node name="Game" type="Node2D" unique_id=1326768085]
 script = ExtResource("1_7jktm")
-level_to_load = 2
 
 [node name="UI" type="Node2D" parent="." unique_id=568643083]
 top_level = true
@@ -111,5 +110,4 @@ script = ExtResource("7_eow3j")
 
 [node name="Ammo" type="Node" parent="Explorer" unique_id=1323047872]
 script = ExtResource("7_eow3j")
-INITIAL = 5
 metadata/_custom_type_script = "uid://dgvh0yihb3hon"

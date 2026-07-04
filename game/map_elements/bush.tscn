@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://cl3ovpdijbouf"]
 
+[sub_resource type="GDScript" id="GDScript_hclxr"]
+script/source = "extends StaticBody2D
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ohgd"]
 size = Vector2(58, 58)
 
@@ -9,6 +13,7 @@ size = Vector2(58, 58)
 light_mask = 2
 collision_layer = 55
 collision_mask = 0
+script = SubResource("GDScript_hclxr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1897683681]
 shape = SubResource("RectangleShape2D_1ohgd")

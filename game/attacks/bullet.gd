@@ -24,6 +24,8 @@ func _physics_process(delta: float) -> void:
 		var collider = collision.get_collider()
 		if collider.has_signal("hit_by_bullet"):
 			collider.emit_signal("hit_by_bullet", self)
+		else:
+			self.queue_free()
 
 signal hit_by_bullet
 func _hit_by_bullet(bullet: Bullet):

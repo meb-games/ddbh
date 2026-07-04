@@ -68,21 +68,28 @@ func _hit_by_bullet(bullet: Bullet) -> void:
 	if bullet.kind == Bullet.BulletKind.Defensive || bullet.team == Bullet.BulletTeam.Explorer:
 		return
 	
-	var dmg = 1 * self.state
+	self._hit_by_attack(bullet)
 
-	$Health.change.emit(-dmg)
-	self.state = PlayerState.Hit
-	bullet.queue_free()
-
-# non-bullet enemy attacks
-func _hit_by_attack(enemy: Enemy, data):
-	self.state = PlayerState.Hit
-	if enemy is Golem:
+func _hit_by_attack(source, data = null):
+	if self.state == PlayerState.Hit:
+		return
+	
+	var dmg: int
+	
+	if source is Golem:
 		match data as Golem.GolemAttack:
 			Golem.GolemAttack.NORMAL:
-				$Health.change.emit(-2)
+				dmg = 2
 			Golem.GolemAttack.CHARGED:
-				$Health.change.emit(-1)
+				dmg = 1
+	elif source is Slime:
+		dmg = 1
+	elif source is Bullet:
+		dmg *= self.state
+		source.queue_free()
+	
+	self.state = PlayerState.Hit
+	$Health.change.emit(-dmg)
 
 func _process(_delta: float) -> void:
 	if $Health.value() <= 0:
