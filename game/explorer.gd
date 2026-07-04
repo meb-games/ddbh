@@ -28,7 +28,7 @@ const DEFAULT_COLLISION_MASK := 0
 func _init() -> void:
 	self.hit_by_bullet.connect(self._hit_by_bullet)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	self.velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * speed
 	self.move_and_slide()
 
@@ -64,15 +64,10 @@ func _hit_by_bullet(bullet: Bullet) -> void:
 	if bullet.kind == Bullet.BulletKind.Defensive || bullet.team == Bullet.BulletTeam.Explorer:
 		return
 	
-	match self.state:
-		PlayerState.Normal:
-			var dmg = 1 * self.state
-			self.state = PlayerState.Hit
+	var dmg = 1 * self.state
 
-			$Health.change.emit(-dmg)
-		PlayerState.Hit:
-			pass
-	
+	$Health.change.emit(-dmg)
+	self.state = PlayerState.Hit
 	bullet.queue_free()
 
 # non-bullet enemy attacks

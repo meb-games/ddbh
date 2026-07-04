@@ -54,8 +54,8 @@ signal hit_by_bullet
 func _hit_by_bullet(bullet: Bullet):
 	if bullet.kind == Bullet.BulletKind.Defensive || bullet.team == Bullet.BulletTeam.Enemy:
 		return
-
-	self.health -= 1
+		
+	self._takeDamage(1)
 	bullet.queue_free()
 
 var _ticks_to_act: int = self.ACTION_SPEED
@@ -91,6 +91,20 @@ func _stop():
 # Internals
 # 
 
+enum DamageState {
+	Hit,
+	Normal
+}
+var damageState: DamageState = DamageState.Normal
+var damageFrames = 5;
+
+func _takeDamage(amount: int):
+	if self.damageState == DamageState.Hit && self.damageFrames > 0:
+		return
+
+	self.health -= amount
+	self.damageState = DamageState.Hit
+
 
 
 func _notification(what: int) -> void:
@@ -114,6 +128,15 @@ func _notification(what: int) -> void:
 			if self.health <= 0:
 				self.queue_free()
 				return
+			
+			if self.damageState == DamageState.Hit:
+				self.modulate = Color.RED
+				self.damageFrames -= 1
+				if self.damageFrames == 0:
+					self.damageFrames = 5
+					self.damageState = DamageState.Normal
+			else:
+				self.modulate = Color.WHITE
 
 			var delta = Engine.time_scale / Engine.physics_ticks_per_second
 			self.velocity = self.movement_speed * self.movement_direction * delta
