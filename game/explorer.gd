@@ -38,6 +38,9 @@ func _physics_process(_delta: float) -> void:
 		shoot(OFFENSIVE_BULLET)
 
 func shoot(bullet_scene: PackedScene) -> void:
+	if $Ammo.value() == 0:
+		return
+	
 	var mouse_pos := get_global_mouse_position()
 	var bullet: Bullet = bullet_scene.instantiate()
 	
@@ -46,6 +49,7 @@ func shoot(bullet_scene: PackedScene) -> void:
 	if bullet.direction == Vector2.ZERO:
 		bullet.direction = Vector2.RIGHT # fallback if mouse exactly on explorer
 	$/root/Game/Attacks.add_child(bullet)
+	$Ammo.change.emit(-1)
 
 func update_collision():
 	self.collision_mask = DEFAULT_COLLISION_MASK | (1 << self.state)

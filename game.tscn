@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://cb6cwbqtl2j4l"]
 
 [ext_resource type="Script" uid="uid://chcpev8bc35m3" path="res://game.gd" id="1_7jktm"]
-[ext_resource type="Script" uid="uid://c8n6lloyoc33u" path="res://health_bar.gd" id="2_ryrav"]
+[ext_resource type="Script" uid="uid://c8n6lloyoc33u" path="res://hud/health_bar.gd" id="2_ryrav"]
 [ext_resource type="PackedScene" uid="uid://bfnpagbmka5qo" path="res://ui/pause_menu.tscn" id="3_eow3j"]
 [ext_resource type="Script" uid="uid://qkys0o505fxc" path="res://game/explorer.gd" id="4_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://bdt81fp8yajvt" path="res://ui/victory.tscn" id="4_vef74"]
+[ext_resource type="Script" uid="uid://cn3h1rawlqmsh" path="res://hud/ammo.gd" id="5_hve3p"]
 [ext_resource type="Shape2D" uid="uid://by5n3dsnjhh38" path="res://assets/player_collision_shape.tres" id="5_ryrav"]
 [ext_resource type="Texture2D" uid="uid://c807f6rscjxkn" path="res://assets/sprites/explorer.png" id="5_vef74"]
-[ext_resource type="Script" uid="uid://dgvh0yihb3hon" path="res://health.gd" id="7_eow3j"]
+[ext_resource type="Script" uid="uid://dgvh0yihb3hon" path="res://shared_int.gd" id="7_eow3j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jktm"]
 bg_color = Color(0.4648739, 0.4648739, 0.4648739, 1)
@@ -62,6 +63,14 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_8a5ej")
 [node name="Victory" parent="UI" unique_id=1390008435 instance=ExtResource("4_vef74")]
 visible = false
 
+[node name="Ammo" type="Label" parent="UI" unique_id=1652987035]
+offset_left = 1.0
+offset_top = 624.0
+offset_right = 41.0
+offset_bottom = 647.0
+text = "Ammo: 5/5"
+script = ExtResource("5_hve3p")
+
 [node name="Camera" type="Camera2D" parent="." unique_id=900507174]
 position = Vector2(576, 324)
 
@@ -99,3 +108,8 @@ texture = ExtResource("5_vef74")
 
 [node name="Health" type="Node" parent="Explorer" unique_id=1478906189]
 script = ExtResource("7_eow3j")
+
+[node name="Ammo" type="Node" parent="Explorer" unique_id=1323047872]
+script = ExtResource("7_eow3j")
+INITIAL = 5
+metadata/_custom_type_script = "uid://dgvh0yihb3hon"
